@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>East India Foods</title>
+    <link rel="stylesheet" href="../assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1>East India Foods</h1>
+        <p class="tagline">Fresh fish, earthy grains, and classic sweets.</p>
+      </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Primary">
+      <div class="container nav-links">
+        <a href="../index.html">Home</a>
+        <a href="north.html">North</a>
+        <a href="south.html">South</a>
+        <a class="active" href="east.html">East</a>
+        <a href="west.html">West</a>
+        <a href="northeast.html">Northeast</a>
+      </div>
+    </nav>
+
+    <main class="container">
+      <section class="region-intro">
+        <h2>Popular Dishes</h2>
+        <p>Search dishes by name or state.</p>
+        <input
+          id="dishSearch"
+          class="search-input"
+          type="search"
+          placeholder="Try: Bengal, Bihar, Rasgulla..."
+          aria-label="Search dishes"
+        />
+      </section>
+
+      <section class="cards-grid" aria-label="East India dishes">
+        <article class="food-card" data-name="Macher Jhol" data-state="West Bengal">
+          <img
+            src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=900&q=80"
+            alt="Fish curry in Bengali style"
+          />
+          <div class="food-content">
+            <h3>Macher Jhol</h3>
+            <p class="meta">State: West Bengal</p>
+            <p>Traditional Bengali fish curry, light yet flavorful and warming.</p>
+          </div>
+        </article>
+
+        <article class="food-card" data-name="Litti Chokha" data-state="Bihar">
+          <img
+            src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=80"
+            alt="Litti chokha served on a plate"
+          />
+          <div class="food-content">
+            <h3>Litti Chokha</h3>
+            <p class="meta">State: Bihar</p>
+            <p>Roasted wheat balls with spiced gram flour and smoked mash.</p>
+          </div>
+        </article>
+
+        <article class="food-card" data-name="Rasgulla" data-state="Odisha and West Bengal">
+          <img
+            src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=900&q=80"
+            alt="Bowl of rasgulla in sugar syrup"
+          />
+          <div class="food-content">
+            <h3>Rasgulla</h3>
+            <p class="meta">State: Odisha and West Bengal</p>
+            <p>Soft paneer dumplings soaked in sweet sugar syrup.</p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Explore more regions from the navigation menu.</p>
+      </div>
+    </footer>
+
+    <script src="../assets/script.js"></script>
+  </body>
+</html>

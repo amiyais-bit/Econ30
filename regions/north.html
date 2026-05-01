@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>North India Foods</title>
+    <link rel="stylesheet" href="../assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1>North India Foods</h1>
+        <p class="tagline">Rich gravies, breads, and aromatic spices.</p>
+      </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Primary">
+      <div class="container nav-links">
+        <a href="../index.html">Home</a>
+        <a class="active" href="north.html">North</a>
+        <a href="south.html">South</a>
+        <a href="east.html">East</a>
+        <a href="west.html">West</a>
+        <a href="northeast.html">Northeast</a>
+      </div>
+    </nav>
+
+    <main class="container">
+      <section class="region-intro">
+        <h2>Popular Dishes</h2>
+        <p>Search dishes by name or state.</p>
+        <input
+          id="dishSearch"
+          class="search-input"
+          type="search"
+          placeholder="Try: Punjab, Kashmiri, Kulcha..."
+          aria-label="Search dishes"
+        />
+      </section>
+
+      <section class="cards-grid" aria-label="North India dishes">
+        <article class="food-card" data-name="Chole Bhature" data-state="Punjab">
+          <img
+            src="https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=900&q=80"
+            alt="Plate of chole bhature"
+          />
+          <div class="food-content">
+            <h3>Chole Bhature</h3>
+            <p class="meta">State: Punjab</p>
+            <p>Spiced chickpea curry served with fluffy fried bread.</p>
+          </div>
+        </article>
+
+        <article class="food-card" data-name="Rogan Josh" data-state="Jammu and Kashmir">
+          <img
+            src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&w=900&q=80"
+            alt="Bowl of rogan josh curry"
+          />
+          <div class="food-content">
+            <h3>Rogan Josh</h3>
+            <p class="meta">State: Jammu and Kashmir</p>
+            <p>Slow-cooked lamb curry known for deep red color and aroma.</p>
+          </div>
+        </article>
+
+        <article class="food-card" data-name="Amritsari Kulcha" data-state="Punjab">
+          <img
+            src="https://images.unsplash.com/photo-1613292443284-8d10ef938f9b?auto=format&fit=crop&w=900&q=80"
+            alt="Amritsari kulcha with chutney"
+          />
+          <div class="food-content">
+            <h3>Amritsari Kulcha</h3>
+            <p class="meta">State: Punjab</p>
+            <p>Stuffed flatbread baked until crisp and served with chole.</p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Explore more regions from the navigation menu.</p>
+      </div>
+    </footer>
+
+    <script src="../assets/script.js"></script>
+  </body>
+</html>

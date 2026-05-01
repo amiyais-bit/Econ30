@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foods Across India</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <p class="kicker">A visual food essay</p>
+        <h1>Foods Across India</h1>
+        <p class="tagline">
+          Scroll through regions to see signature flavors, dishes, and cultural
+          food identities across the country.
+        </p>
+      </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Primary">
+      <div class="container nav-links">
+        <a class="active" href="index.html">Home</a>
+        <a href="regions/north.html">North</a>
+        <a href="regions/south.html">South</a>
+        <a href="regions/east.html">East</a>
+        <a href="regions/west.html">West</a>
+        <a href="regions/northeast.html">Northeast</a>
+      </div>
+    </nav>
+
+    <main class="container">
+      <section class="scrolly" aria-label="India food story">
+        <aside class="sticky-visual">
+          <p class="visual-label">Current region</p>
+          <h2 id="visualTitle">North India</h2>
+          <p id="visualText">
+            Rich gravies, tandoor breads, and comforting meals built for bold
+            flavor.
+          </p>
+          <a id="visualLink" class="visual-cta" href="regions/north.html"
+            >Explore dishes</a
+          >
+        </aside>
+
+        <div class="story-steps">
+          <article
+            class="story-step is-active"
+            data-title="North India"
+            data-text="Rich gravies, tandoor breads, and comforting meals built for bold flavor."
+            data-link="regions/north.html"
+          >
+            <p class="step-number">01</p>
+            <h3>North India</h3>
+            <p>
+              Punjabi and Kashmiri cuisines are known for creamy curries, smoky
+              tandoori cooking, and hearty wheat breads.
+            </p>
+          </article>
+
+          <article
+            class="story-step"
+            data-title="South India"
+            data-text="Fermented batters, coconut gravies, and spice-forward classics."
+            data-link="regions/south.html"
+          >
+            <p class="step-number">02</p>
+            <h3>South India</h3>
+            <p>
+              From dosas to biryani and appam, southern kitchens blend lentils,
+              rice, tamarind, curry leaves, and coconut.
+            </p>
+          </article>
+
+          <article
+            class="story-step"
+            data-title="East India"
+            data-text="River fish, mustard notes, and iconic sweets."
+            data-link="regions/east.html"
+          >
+            <p class="step-number">03</p>
+            <h3>East India</h3>
+            <p>
+              Eastern food traditions celebrate freshwater fish, simple spice
+              blends, and famous desserts like rasgulla.
+            </p>
+          </article>
+
+          <article
+            class="story-step"
+            data-title="West India"
+            data-text="Street-food energy meets coastal comfort."
+            data-link="regions/west.html"
+          >
+            <p class="step-number">04</p>
+            <h3>West India</h3>
+            <p>
+              Gujarat, Maharashtra, and Goa offer everything from snackable
+              dhokla to spicy pav bhaji and fish curry.
+            </p>
+          </article>
+
+          <article
+            class="story-step"
+            data-title="Northeast India"
+            data-text="Herbs, fermentation, and deeply local ingredients."
+            data-link="regions/northeast.html"
+          >
+            <p class="step-number">05</p>
+            <h3>Northeast India</h3>
+            <p>
+              The region highlights bamboo shoots, fermented flavors, and light
+              yet deeply aromatic food traditions.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="regions-grid" aria-label="Quick links">
+        <a class="region-tile" href="regions/north.html"><h3>North</h3></a>
+        <a class="region-tile" href="regions/south.html"><h3>South</h3></a>
+        <a class="region-tile" href="regions/east.html"><h3>East</h3></a>
+        <a class="region-tile" href="regions/west.html"><h3>West</h3></a>
+        <a class="region-tile" href="regions/northeast.html"><h3>Northeast</h3></a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Foods Across India - Static educational showcase.</p>
+      </div>
+    </footer>
+    <script src="assets/script.js"></script>
+  </body>
+</html>
