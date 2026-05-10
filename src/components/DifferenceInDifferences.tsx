@@ -114,16 +114,20 @@ export default function DifferenceInDifferences() {
               <XAxis dataKey="year" tick={{ fontSize: 12 }} />
               <YAxis tick={{ fontSize: 12 }} />
               <Tooltip
-                formatter={(value: number, name: string, ctx: any) => {
-                  const row = ctx?.payload as { year: number; vbc: number; control: number } | undefined;
+                formatter={(value, name, item) => {
+                  const num =
+                    typeof value === "number" ? value : Number.parseFloat(String(value));
+                  const row = (
+                    item as { payload?: { year: number; vbc: number; control: number } } | undefined
+                  )?.payload;
                   const diff =
                     row && typeof row.vbc === "number" && typeof row.control === "number"
                       ? row.vbc - row.control
                       : undefined;
                   const label =
-                    name === "vbc" ? meta.vbc : name === "control" ? meta.control : name;
+                    name === "vbc" ? meta.vbc : name === "control" ? meta.control : String(name);
                   const extra = diff !== undefined ? ` (Δ ${fmt(diff)})` : "";
-                  return [`${fmt(value)} ${meta.unit}${extra}`, label];
+                  return [`${fmt(Number.isFinite(num) ? num : 0)} ${meta.unit}${extra}`, label];
                 }}
                 labelFormatter={(label) => `Year: ${label}`}
                 contentStyle={{
