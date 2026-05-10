@@ -1,6 +1,5 @@
 import React from "react";
 import Hero from "./components/Hero";
-import UsHealthcareProblem from "./components/UsHealthcareProblem";
 import BaselineInequality from "./components/BaselineInequality";
 import PaymentModelDiagram from "./components/PaymentModelDiagram";
 import MedicareAdvantageAdoption from "./components/MedicareAdvantageAdoption";
@@ -12,7 +11,6 @@ import Takeaways from "./components/Takeaways";
 import Sources from "./components/Sources";
 
 const nav = [
-  { id: "problem", label: "The problem" },
   { id: "baseline", label: "Baseline" },
   { id: "payment-model", label: "What is VBC?" },
   { id: "adoption", label: "MA adoption" },
@@ -54,7 +52,6 @@ export default function App() {
 
       <main>
         <Hero />
-        <UsHealthcareProblem />
         <BaselineInequality />
         <PaymentModelDiagram />
         <MedicareAdvantageAdoption />
