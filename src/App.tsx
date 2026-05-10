@@ -24,8 +24,10 @@ const nav = [
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-paper">
-      <header className="sticky top-0 z-20 border-b border-black/[0.08] bg-white/[0.72] backdrop-blur-xl backdrop-saturate-[180%] supports-[backdrop-filter]:bg-white/60">
+    <div className="relative min-h-screen bg-paper">
+      <div className="ambient-page" aria-hidden />
+      <div className="noise-overlay" aria-hidden />
+      <header className="sticky top-0 z-20 border-b border-black/[0.08] bg-white/[0.65] shadow-apple-md backdrop-blur-2xl backdrop-saturate-[180%] supports-[backdrop-filter]:bg-white/55">
         <div className="mx-auto flex h-[52px] w-full max-w-content items-center justify-between gap-4 px-5 sm:px-6">
           <div className="min-w-0">
             <p className="truncate text-[14px] font-semibold tracking-tight text-ink">
@@ -41,7 +43,7 @@ export default function App() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="rounded-full px-3 py-1.5 text-[12px] font-normal text-ink transition hover:bg-black/[0.04]"
+                className="relative rounded-full px-3 py-1.5 text-[12px] font-normal text-ink transition-all duration-300 after:absolute after:bottom-0.5 after:left-1/2 after:h-[2px] after:w-0 after:-translate-x-1/2 after:rounded-full after:bg-apple-blue after:transition-all after:duration-300 hover:-translate-y-0.5 hover:bg-white/90 hover:text-apple-blue hover:shadow-glow-sm hover:after:w-[65%]"
               >
                 {item.label}
               </a>
@@ -50,7 +52,7 @@ export default function App() {
         </div>
       </header>
 
-      <main>
+      <main className="relative z-10">
         <Hero />
         <BaselineInequality />
         <PaymentModelDiagram />
@@ -63,7 +65,7 @@ export default function App() {
         <Sources />
       </main>
 
-      <footer className="border-t border-black/[0.08] bg-surface py-12">
+      <footer className="relative z-10 border-t border-black/[0.08] bg-surface/95 py-12 backdrop-blur-md">
         <div className="mx-auto w-full max-w-content px-5 sm:px-6">
           <p className="text-[12px] text-ink-secondary">
             Built for ECON 30. Figures use placeholder data for demonstration.{" "}
