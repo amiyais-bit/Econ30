@@ -140,6 +140,16 @@ export default function MedicareAdvantageAdoption() {
           </div>
         </Card>
       </div>
+
+      <p className="mt-6 text-[13px] leading-relaxed text-ink-secondary">
+        <span className="font-semibold text-ink">Data note:</span> The series and factor weights
+        above are illustrative. For published Medicare Advantage enrollment shares and context, use
+        CMS enrollment files and syntheses such as KFF’s annual enrollment updates — see{" "}
+        <a href="#sources" className="font-medium text-apple-blue hover:underline">
+          Sources
+        </a>
+        .
+      </p>
     </Section>
   );
 }

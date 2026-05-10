@@ -8,6 +8,7 @@ import EquityGap from "./components/EquityGap";
 import GeographyMap from "./components/GeographyMap";
 import RiskAdjustment from "./components/RiskAdjustment";
 import Takeaways from "./components/Takeaways";
+import Sources from "./components/Sources";
 
 const nav = [
   { id: "baseline", label: "Baseline" },
@@ -18,6 +19,7 @@ const nav = [
   { id: "geography", label: "Geography" },
   { id: "risk", label: "Risk adjustment" },
   { id: "takeaways", label: "Takeaways" },
+  { id: "sources", label: "Sources" },
 ];
 
 export default function App() {
@@ -58,12 +60,17 @@ export default function App() {
         <GeographyMap />
         <RiskAdjustment />
         <Takeaways />
+        <Sources />
       </main>
 
       <footer className="border-t border-black/[0.08] bg-surface py-12">
         <div className="mx-auto w-full max-w-content px-5 sm:px-6">
           <p className="text-[12px] text-ink-secondary">
-            Built for ECON 30. Figures use placeholder data for demonstration.
+            Built for ECON 30. Figures use placeholder data for demonstration.{" "}
+            <a href="#sources" className="font-medium text-apple-blue hover:underline">
+              Sources
+            </a>{" "}
+            lists reference data systems and reports.
           </p>
           <p className="mt-2 text-[12px] text-ink-secondary">
             Local preview:{" "}
