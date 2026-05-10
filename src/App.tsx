@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "./components/Hero";
 import BaselineInequality from "./components/BaselineInequality";
 import PaymentModelDiagram from "./components/PaymentModelDiagram";
+import MedicareAdvantageAdoption from "./components/MedicareAdvantageAdoption";
 import DifferenceInDifferences from "./components/DifferenceInDifferences";
 import EquityGap from "./components/EquityGap";
 import GeographyMap from "./components/GeographyMap";
@@ -11,6 +12,7 @@ import Takeaways from "./components/Takeaways";
 const nav = [
   { id: "baseline", label: "Baseline" },
   { id: "payment-model", label: "What is VBC?" },
+  { id: "adoption", label: "MA adoption" },
   { id: "did", label: "Outcomes" },
   { id: "equity", label: "Equity" },
   { id: "geography", label: "Geography" },
@@ -50,6 +52,7 @@ export default function App() {
         <Hero />
         <BaselineInequality />
         <PaymentModelDiagram />
+        <MedicareAdvantageAdoption />
         <DifferenceInDifferences />
         <EquityGap />
         <GeographyMap />
