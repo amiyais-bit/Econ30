@@ -70,22 +70,22 @@ export default function DifferenceInDifferences() {
       <Card className="p-5">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
               Chart
             </p>
-            <h3 className="mt-2 text-xl font-extrabold">
+            <h3 className="mt-2 text-[21px] font-semibold text-ink">
               Outcomes Before and After VBC Adoption
             </h3>
-            <p className="mt-1 text-sm text-slate-700">
+            <p className="mt-1 text-[15px] text-ink-secondary">
               Adoption year assumed: <span className="font-semibold">{adoptionYear}</span>
             </p>
           </div>
 
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <label className="text-sm font-semibold text-slate-700">
+            <label className="text-[14px] font-semibold text-ink">
               Outcome
               <select
-                className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm shadow-sm"
+                className="mt-2 w-full rounded-[12px] border border-black/[0.08] bg-white px-3 py-2 text-[14px] shadow-apple"
                 value={outcome}
                 onChange={(e) => setOutcome(e.target.value as Outcome)}
               >
@@ -95,10 +95,10 @@ export default function DifferenceInDifferences() {
               </select>
             </label>
 
-            <label className="mt-1 inline-flex items-center gap-2 text-sm font-semibold text-slate-700 sm:mt-6">
+            <label className="mt-1 inline-flex items-center gap-2 text-[14px] font-semibold text-ink sm:mt-6">
               <input
                 type="checkbox"
-                className="h-4 w-4 rounded border-slate-300"
+                className="h-4 w-4 rounded border-black/[0.12]"
                 checked={showMarker}
                 onChange={(e) => setShowMarker(e.target.checked)}
               />
@@ -135,13 +135,13 @@ export default function DifferenceInDifferences() {
                   border: "1px solid rgba(17, 18, 22, 0.12)",
                   boxShadow: "0 12px 26px rgba(17, 18, 22, 0.08)",
                 }}
-                labelStyle={{ color: "#111216", fontWeight: 700 }}
+                labelStyle={{ color: "#1d1d1f", fontWeight: 600 }}
               />
 
               <Line
                 type="monotone"
                 dataKey="vbc"
-                stroke="#8a5cf6"
+                stroke="#0071e3"
                 strokeWidth={3}
                 dot={{ r: 3 }}
                 name="vbc"
@@ -149,8 +149,8 @@ export default function DifferenceInDifferences() {
               <Line
                 type="monotone"
                 dataKey="control"
-                stroke="#0f172a"
-                strokeOpacity={0.55}
+                stroke="#1d1d1f"
+                strokeOpacity={0.35}
                 strokeWidth={3}
                 dot={{ r: 3 }}
                 name="control"
@@ -175,19 +175,19 @@ export default function DifferenceInDifferences() {
 
         <div className="mt-5 grid gap-4 lg:grid-cols-2">
           <Card className="p-5">
-            <h4 className="text-lg font-extrabold">
+            <h4 className="text-[19px] font-semibold text-ink">
               After adoption, did VBC patients improve faster than similar non-VBC patients?
             </h4>
-            <p className="mt-2 text-slate-700">
+            <p className="mt-2 text-ink-secondary">
               If the VBC group improves more quickly after {adoptionYear} than the control group,
               this suggests VBC may be associated with better outcomes. However, this does not yet prove that inequality declined.
             </p>
           </Card>
           <Card className="p-5">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
               Note
             </p>
-            <p className="mt-2 text-sm text-slate-700">
+            <p className="mt-2 text-[15px] text-ink-secondary">
               This is a teaching-friendly “causal-ish” visualization. When you replace placeholder data,
               you can plug in provider/ACO adoption timing, matched controls, or event-study estimates.
             </p>

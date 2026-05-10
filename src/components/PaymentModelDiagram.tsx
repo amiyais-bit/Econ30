@@ -8,20 +8,20 @@ function Step(props: { label: string; active: boolean }) {
   return (
     <div
       className={[
-        "rounded-2xl border px-4 py-3 text-sm shadow-sm transition",
+        "rounded-[14px] border px-4 py-3 text-sm shadow-apple transition",
         props.active
-          ? "border-violet-300 bg-white"
-          : "border-slate-200 bg-white/60 opacity-70",
+          ? "border-black/[0.08] bg-white shadow-apple-md"
+          : "border-black/[0.06] bg-white/50 opacity-55",
       ].join(" ")}
     >
-      <p className="font-semibold text-slate-800">{props.label}</p>
+      <p className="font-semibold text-ink">{props.label}</p>
     </div>
   );
 }
 
 function Arrow() {
   return (
-    <div className="flex items-center justify-center text-slate-400">
+    <div className="flex items-center justify-center text-ink-secondary">
       <span className="text-xl">→</span>
     </div>
   );
@@ -47,21 +47,21 @@ export default function PaymentModelDiagram() {
       <Card className="p-5">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
               Payment model
             </p>
-            <p className="mt-1 text-sm text-slate-700">{subtitle}</p>
+            <p className="mt-1 text-[15px] text-ink-secondary">{subtitle}</p>
           </div>
 
-          <div className="inline-flex rounded-2xl border border-slate-200 bg-white/80 p-1">
+          <div className="inline-flex rounded-full border border-black/[0.08] bg-surface/90 p-1">
             <button
               type="button"
               onClick={() => setSelected("ffs")}
               className={[
-                "rounded-xl px-4 py-2 text-sm font-bold transition",
+                "rounded-full px-4 py-2 text-[13px] font-semibold transition",
                 selected === "ffs"
-                  ? "bg-violet-600 text-white"
-                  : "text-slate-700 hover:bg-slate-50",
+                  ? "bg-apple-blue text-white"
+                  : "text-ink hover:bg-black/[0.04]",
               ].join(" ")}
             >
               Fee-for-Service
@@ -70,10 +70,10 @@ export default function PaymentModelDiagram() {
               type="button"
               onClick={() => setSelected("vbc")}
               className={[
-                "rounded-xl px-4 py-2 text-sm font-bold transition",
+                "rounded-full px-4 py-2 text-[13px] font-semibold transition",
                 selected === "vbc"
-                  ? "bg-violet-600 text-white"
-                  : "text-slate-700 hover:bg-slate-50",
+                  ? "bg-apple-blue text-white"
+                  : "text-ink hover:bg-black/[0.04]",
               ].join(" ")}
             >
               Value-Based Care
@@ -83,7 +83,7 @@ export default function PaymentModelDiagram() {
 
         <div className="mt-6 grid gap-6 lg:grid-cols-2">
           <div>
-            <h3 className="text-lg font-extrabold">Fee-for-Service flow</h3>
+            <h3 className="text-[19px] font-semibold text-ink">Fee-for-Service flow</h3>
             <div className="mt-3 grid grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] items-center gap-2">
               <Step
                 label="Patient gets sick"
@@ -108,7 +108,7 @@ export default function PaymentModelDiagram() {
           </div>
 
           <div>
-            <h3 className="text-lg font-extrabold">Value-Based Care flow</h3>
+            <h3 className="text-[19px] font-semibold text-ink">Value-Based Care flow</h3>
             <div className="mt-3 grid grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] items-center gap-2">
               <Step
                 label="Population assigned"

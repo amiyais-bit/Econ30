@@ -8,7 +8,7 @@ export default function Card(props: {
   return (
     <div
       className={clsx(
-        "rounded-2xl border border-slate-200 bg-white/90 shadow-soft backdrop-blur",
+        "rounded-[20px] border border-black/[0.08] bg-white shadow-apple",
         props.className
       )}
     >
@@ -16,4 +16,3 @@ export default function Card(props: {
     </div>
   );
 }
-

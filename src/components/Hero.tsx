@@ -30,39 +30,40 @@ export default function Hero() {
   const [selected, setSelected] = useState<Mode>("vbc");
   const active = useMemo(() => copy[selected], [selected]);
 
+  const cardBase =
+    "text-left rounded-[20px] border p-6 shadow-apple transition duration-200 ease-out";
+  const cardIdle = "border-black/[0.08] bg-white hover:shadow-apple-md";
+  const cardActive =
+    "border-transparent bg-white shadow-apple-md ring-2 ring-apple-blue ring-offset-2 ring-offset-paper";
+
   return (
-    <section className="pb-10 pt-12 sm:pb-14 sm:pt-16">
-      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6">
-        <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-start">
+    <section className="border-b border-black/[0.06] bg-paper pb-16 pt-14 sm:pb-20 sm:pt-20">
+      <div className="mx-auto w-full max-w-content px-5 sm:px-6">
+        <div className="grid gap-12 md:grid-cols-[1.15fr_0.85fr] md:items-start md:gap-14">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.24em] text-violet-700/80">
+            <p className="text-xs font-semibold tracking-wide text-ink-secondary">
               ECON 30 capstone project
             </p>
-            <h1 className="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl">
+            <h1 className="mt-3 text-[40px] font-semibold leading-[1.05] tracking-tight text-ink sm:text-[48px] lg:text-[56px]">
               Value-Based Care Promises Better Outcomes — But Better for Whom?
             </h1>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-700 sm:text-lg">
+            <p className="mt-6 max-w-2xl text-[17px] leading-[1.47] text-ink-secondary sm:text-[19px] sm:leading-[1.42]">
               The U.S. healthcare system is shifting away from fee-for-service and
               toward value-based care. This project asks whether that shift reduces
               healthcare inequality or simply improves average outcomes.
             </p>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="mt-10 grid gap-4 sm:grid-cols-2">
               <button
                 type="button"
                 onClick={() => setSelected("ffs")}
-                className={[
-                  "text-left rounded-2xl border p-5 shadow-soft transition",
-                  selected === "ffs"
-                    ? "border-violet-300 bg-white"
-                    : "border-slate-200 bg-white/70 hover:bg-white",
-                ].join(" ")}
+                className={[cardBase, selected === "ffs" ? cardActive : cardIdle].join(" ")}
               >
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
                   Payment model
                 </p>
-                <h3 className="mt-2 text-xl font-extrabold">Fee-for-Service</h3>
-                <ul className="mt-3 list-disc pl-5 text-sm text-slate-700">
+                <h3 className="mt-2 text-[21px] font-semibold text-ink">Fee-for-Service</h3>
+                <ul className="mt-4 list-disc space-y-1 pl-5 text-[14px] leading-relaxed text-ink-secondary">
                   <li>Paid per visit, test, or procedure</li>
                   <li>Incentive: deliver more services</li>
                 </ul>
@@ -71,56 +72,53 @@ export default function Hero() {
               <button
                 type="button"
                 onClick={() => setSelected("vbc")}
-                className={[
-                  "text-left rounded-2xl border p-5 shadow-soft transition",
-                  selected === "vbc"
-                    ? "border-violet-300 bg-white"
-                    : "border-slate-200 bg-white/70 hover:bg-white",
-                ].join(" ")}
+                className={[cardBase, selected === "vbc" ? cardActive : cardIdle].join(" ")}
               >
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
                   Payment model
                 </p>
-                <h3 className="mt-2 text-xl font-extrabold">Value-Based Care</h3>
-                <ul className="mt-3 list-disc pl-5 text-sm text-slate-700">
+                <h3 className="mt-2 text-[21px] font-semibold text-ink">Value-Based Care</h3>
+                <ul className="mt-4 list-disc space-y-1 pl-5 text-[14px] leading-relaxed text-ink-secondary">
                   <li>Paid on quality, outcomes, and cost control</li>
                   <li>Incentive: keep patients healthier</li>
                 </ul>
               </button>
             </div>
 
-            <Card className="mt-5 p-5">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+            <Card className="mt-6 p-6">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
                 {active.title} — what it rewards
               </p>
-              <p className="mt-2 text-lg font-extrabold">{active.incentive}</p>
-              <p className="mt-2 text-slate-700">{active.detail}</p>
+              <p className="mt-2 text-[21px] font-semibold text-ink">{active.incentive}</p>
+              <p className="mt-3 text-[15px] leading-relaxed text-ink-secondary">
+                {active.detail}
+              </p>
             </Card>
           </div>
 
-          <Card className="p-5">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+          <Card className="p-6">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
               Core thesis
             </p>
-            <p className="mt-2 text-sm text-slate-700">
+            <p className="mt-3 text-[15px] leading-relaxed text-ink-secondary">
               Value-based care aims to reward better outcomes rather than more
               services, but its equity impact is mixed: it may improve average
               outcomes while still leaving behind lower-income and higher-risk
               patients.
             </p>
-            <div className="mt-4 grid gap-3 text-sm">
-              <div className="rounded-xl border border-slate-200 bg-white p-3">
-                <p className="font-bold">Key idea</p>
-                <p className="text-slate-700">
-                  <span className="font-semibold">Averages</span> can improve even
-                  if <span className="font-semibold">gaps</span> remain large.
+            <div className="mt-6 grid gap-3 text-[14px]">
+              <div className="rounded-[14px] border border-black/[0.06] bg-surface/80 p-4">
+                <p className="font-semibold text-ink">Key idea</p>
+                <p className="mt-1 text-ink-secondary">
+                  <span className="font-semibold text-ink">Averages</span> can improve even
+                  if <span className="font-semibold text-ink">gaps</span> remain large.
                 </p>
               </div>
-              <div className="rounded-xl border border-slate-200 bg-white p-3">
-                <p className="font-bold">This site uses</p>
-                <p className="text-slate-700">
-                  Placeholder data now, structured so you can replace it with real
-                  county/state/provider data later.
+              <div className="rounded-[14px] border border-black/[0.06] bg-surface/80 p-4">
+                <p className="font-semibold text-ink">Data note</p>
+                <p className="mt-1 text-ink-secondary">
+                  Placeholder data for now — structured so you can plug in CMS or
+                  county-level series later.
                 </p>
               </div>
             </div>
@@ -130,4 +128,3 @@ export default function Hero() {
     </section>
   );
 }
-

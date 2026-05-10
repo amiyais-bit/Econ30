@@ -8,6 +8,7 @@ body {
 }
 
 body {
-  @apply bg-paper text-ink;
+  @apply bg-paper font-sans text-ink antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-

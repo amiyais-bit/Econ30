@@ -51,20 +51,20 @@ export default function BaselineInequality() {
         <Card className="p-5">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
                 Chart
               </p>
-              <h3 className="mt-2 text-xl font-extrabold">
+              <h3 className="mt-2 text-[21px] font-semibold text-ink">
                 Baseline Outcome Inequality by Income Group
               </h3>
-              <p className="mt-1 text-sm text-slate-700">
+              <p className="mt-1 text-[15px] text-ink-secondary">
                 Placeholder data — replace later with your real outcome series.
               </p>
             </div>
-            <label className="text-sm font-semibold text-slate-700">
+            <label className="text-[14px] font-semibold text-ink">
               Select outcome
               <select
-                className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm shadow-sm"
+                className="mt-2 w-full rounded-[12px] border border-black/[0.08] bg-white px-3 py-2 text-[14px] shadow-apple"
                 value={outcome}
                 onChange={(e) => setOutcome(e.target.value as OutcomeKey)}
               >
@@ -92,7 +92,7 @@ export default function BaselineInequality() {
                     boxShadow: "0 12px 26px rgba(17, 18, 22, 0.08)",
                   }}
                 />
-                <Bar dataKey={outcome} fill="#8a5cf6" radius={[10, 10, 0, 0]} />
+                <Bar dataKey={outcome} fill="#0071e3" radius={[10, 10, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -100,20 +100,20 @@ export default function BaselineInequality() {
 
         <div className="space-y-4">
           <Card className="p-5">
-            <h4 className="text-lg font-extrabold">
+            <h4 className="text-[19px] font-semibold text-ink">
               Patients do not enter the healthcare system on equal footing.
             </h4>
-            <p className="mt-2 text-slate-700">
+            <p className="mt-2 text-ink-secondary">
               The lowest-income group has a higher <span className="font-semibold">{meta.label.toLowerCase()}</span>{" "}
               than the highest-income group, showing that patients enter the system with unequal baseline risks.
             </p>
           </Card>
 
           <Card className="p-5">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
               Quick comparison
             </p>
-            <p className="mt-2 text-sm text-slate-700">
+            <p className="mt-2 text-[15px] text-ink-secondary">
               Lowest income: <span className="font-bold">{fmt(lowest)}</span> {meta.unit}
               <br />
               Highest income: <span className="font-bold">{fmt(highest)}</span> {meta.unit}

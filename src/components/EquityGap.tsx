@@ -43,22 +43,22 @@ export default function EquityGap() {
       <Card className="p-5">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
               Chart
             </p>
-            <h3 className="mt-2 text-xl font-extrabold">
+            <h3 className="mt-2 text-[21px] font-semibold text-ink">
               Outcome Gap Between Low-Income and High-Income Patients
             </h3>
           </div>
-          <div className="inline-flex rounded-2xl border border-slate-200 bg-white/80 p-1">
+          <div className="inline-flex rounded-full border border-black/[0.08] bg-surface/90 p-1">
             <button
               type="button"
               onClick={() => setView("absolute")}
               className={[
-                "rounded-xl px-4 py-2 text-sm font-bold transition",
+                "rounded-full px-4 py-2 text-[13px] font-semibold transition",
                 view === "absolute"
-                  ? "bg-violet-600 text-white"
-                  : "text-slate-700 hover:bg-slate-50",
+                  ? "bg-apple-blue text-white"
+                  : "text-ink hover:bg-black/[0.04]",
               ].join(" ")}
             >
               Absolute gap
@@ -67,10 +67,10 @@ export default function EquityGap() {
               type="button"
               onClick={() => setView("percent")}
               className={[
-                "rounded-xl px-4 py-2 text-sm font-bold transition",
+                "rounded-full px-4 py-2 text-[13px] font-semibold transition",
                 view === "percent"
-                  ? "bg-violet-600 text-white"
-                  : "text-slate-700 hover:bg-slate-50",
+                  ? "bg-apple-blue text-white"
+                  : "text-ink hover:bg-black/[0.04]",
               ].join(" ")}
             >
               Percent gap
@@ -92,12 +92,12 @@ export default function EquityGap() {
                   border: "1px solid rgba(17, 18, 22, 0.12)",
                   boxShadow: "0 12px 26px rgba(17, 18, 22, 0.08)",
                 }}
-                labelStyle={{ color: "#111216", fontWeight: 700 }}
+                labelStyle={{ color: "#1d1d1f", fontWeight: 600 }}
               />
               <Line
                 type="monotone"
                 dataKey="gap"
-                stroke="#8a5cf6"
+                stroke="#0071e3"
                 strokeWidth={3}
                 dot={{ r: 3 }}
               />
@@ -112,17 +112,17 @@ export default function EquityGap() {
 
         <div className="mt-5 grid gap-4 lg:grid-cols-2">
           <Card className="p-5">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
               Annotation
             </p>
-            <p className="mt-2 text-sm text-slate-700">
+            <p className="mt-2 text-[15px] text-ink-secondary">
               <span className="font-semibold">
                 Average outcomes can improve while inequality remains large.
               </span>
             </p>
           </Card>
           <Card className="p-5">
-            <p className="text-slate-700">
+            <p className="text-[15px] leading-relaxed text-ink-secondary">
               The key equity question is not whether outcomes improved overall, but whether disadvantaged
               patients improved faster than advantaged patients.
             </p>

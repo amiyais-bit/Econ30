@@ -48,10 +48,10 @@ function colorScale(value: number | undefined, metric: Metric): string {
   };
   const [min, max] = ranges[metric];
   const t = clamp01((value - min) / (max - min));
-  // light to darker violet
-  const r = 138;
-  const g = 92;
-  const b = 246;
+  // Apple-like blue ramp
+  const r = 0;
+  const g = 113;
+  const b = 227;
   const alpha = 0.1 + t * 0.55;
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
@@ -91,13 +91,13 @@ export default function GeographyMap() {
       <Card className="p-5">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
               Map
             </p>
-            <h3 className="mt-2 text-xl font-extrabold">
+            <h3 className="mt-2 text-[21px] font-semibold text-ink">
               Geography of Value-Based Care and Healthcare Inequality
             </h3>
-            <p className="mt-1 text-sm text-slate-700">
+            <p className="mt-1 text-[15px] text-ink-secondary">
               {meta.legend}. Placeholder state-level values (CA, TX, NY, FL).
             </p>
           </div>
@@ -112,8 +112,8 @@ export default function GeographyMap() {
                   className={[
                     "rounded-xl border px-3 py-2 text-sm font-bold transition",
                     metric === m
-                      ? "border-violet-300 bg-violet-600 text-white"
-                      : "border-slate-200 bg-white/80 text-slate-700 hover:bg-white",
+                      ? "border-transparent bg-apple-blue text-white"
+                      : "border-black/[0.08] bg-white text-ink hover:bg-surface",
                   ].join(" ")}
                 >
                   {metricMeta[m].label}
@@ -126,17 +126,17 @@ export default function GeographyMap() {
         <div className="relative mt-5">
           {tooltip ? (
             <div
-              className="pointer-events-none absolute z-10 w-[240px] -translate-x-1/2 rounded-2xl border border-slate-200 bg-white/95 p-3 text-xs shadow-soft"
+              className="pointer-events-none absolute z-10 w-[240px] -translate-x-1/2 rounded-[16px] border border-black/[0.08] bg-white/95 p-3 text-[12px] shadow-apple-md backdrop-blur-sm"
               style={{ left: tooltip.x, top: tooltip.y }}
             >
-              <p className="text-sm font-extrabold text-slate-900">
+              <p className="text-[13px] font-semibold text-ink">
                 {tooltip.name}{" "}
                 {tooltip.code ? (
-                  <span className="font-semibold text-slate-500">({tooltip.code})</span>
+                  <span className="font-semibold text-ink-secondary">({tooltip.code})</span>
                 ) : null}
               </p>
               {tooltip.row ? (
-                <div className="mt-2 grid gap-1 text-slate-700">
+                <div className="mt-2 grid gap-1 text-ink-secondary">
                   <p>
                     <span className="font-semibold">VBC penetration:</span>{" "}
                     {tooltip.row.vbcPenetration.toFixed(0)}%
@@ -151,12 +151,12 @@ export default function GeographyMap() {
                   </p>
                 </div>
               ) : (
-                <p className="mt-2 text-slate-600">No placeholder data for this state.</p>
+                <p className="mt-2 text-ink-secondary">No placeholder data for this state.</p>
               )}
             </div>
           ) : null}
 
-          <div className="rounded-2xl border border-slate-200 bg-white/60 p-3">
+          <div className="rounded-[20px] border border-black/[0.08] bg-white p-3 shadow-apple">
             <ComposableMap
               projection="geoAlbersUsa"
               style={{ width: "100%", height: "auto" }}
@@ -193,7 +193,7 @@ export default function GeographyMap() {
                           default: { outline: "none" },
                           hover: {
                             outline: "none",
-                            fill: "rgba(138, 92, 246, 0.55)",
+                            fill: "rgba(0, 113, 227, 0.35)",
                           },
                           pressed: { outline: "none" },
                         }}
@@ -206,7 +206,7 @@ export default function GeographyMap() {
           </div>
         </div>
 
-        <p className="mt-5 text-sm text-slate-700">
+        <p className="mt-5 text-[15px] leading-relaxed text-ink-secondary">
           If VBC is concentrated in already-resourced regions, then reform may not
           reach the patients and places with the greatest need.
         </p>

@@ -26,21 +26,22 @@ export default function Takeaways() {
       id="takeaways"
       title="Main Takeaways"
       subtitle="Value-based care is not automatically equitable. Equity requires explicit incentives and measurement."
+      tone="surface"
     >
       <div className="grid gap-4 md:grid-cols-3">
         {takeaways.map((t) => (
           <Card key={t.title} className="p-5">
-            <h3 className="text-lg font-extrabold">{t.title}</h3>
-            <p className="mt-2 text-sm text-slate-700">{t.body}</p>
+            <h3 className="text-[19px] font-semibold text-ink">{t.title}</h3>
+            <p className="mt-2 text-[15px] leading-relaxed text-ink-secondary">{t.body}</p>
           </Card>
         ))}
       </div>
 
       <Card className="mt-6 p-5">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+        <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
           Final thesis
         </p>
-        <p className="mt-2 text-slate-700">
+        <p className="mt-2 text-[15px] leading-relaxed text-ink-secondary">
           <span className="font-semibold">
             Value-based care is not automatically equitable.
           </span>{" "}
