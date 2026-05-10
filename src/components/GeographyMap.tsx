@@ -3,6 +3,7 @@ import {
   ComposableMap,
   Geographies,
   Geography,
+  type RsmGeography,
 } from "react-simple-maps";
 import Section from "./Section";
 import Card from "./Card";
@@ -161,8 +162,8 @@ export default function GeographyMap() {
               style={{ width: "100%", height: "auto" }}
             >
               <Geographies geography={geoUrl}>
-                {({ geographies }) =>
-                  geographies.map((geo) => {
+                {({ geographies }: { geographies: RsmGeography[] }) =>
+                  geographies.map((geo: RsmGeography) => {
                     const id = (geo.id ?? "").toString().padStart(2, "0");
                     const code = stateIdToCode[id];
                     const row = code ? byCode.get(code) : undefined;
@@ -175,7 +176,7 @@ export default function GeographyMap() {
                         fill={fill}
                         stroke="rgba(17, 18, 22, 0.2)"
                         strokeWidth={0.6}
-                        onMouseMove={(evt) => {
+                        onMouseMove={(evt: React.MouseEvent<SVGPathElement>) => {
                           const rect = (evt.currentTarget.ownerSVGElement as SVGSVGElement | null)?.getBoundingClientRect();
                           const x = rect ? evt.clientX - rect.left : evt.clientX;
                           const y = rect ? evt.clientY - rect.top : evt.clientY;
