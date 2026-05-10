@@ -1,115 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Does Value-Based Care Reduce Inequality?</title>
-    <style>
-      :root {
-        --bg: #f6f3ef;
-        --text: #111216;
-        --muted: #4c5563;
-        --card: rgba(255, 255, 255, 0.92);
-        --border: rgba(17, 18, 22, 0.12);
-        --accent: #8a5cf6;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial,
-          Helvetica, sans-serif;
-        color: var(--text);
-        background:
-          radial-gradient(circle at 15% 12%, rgba(138, 92, 246, 0.12) 0%, transparent 42%),
-          radial-gradient(circle at 78% 26%, rgba(255, 122, 168, 0.12) 0%, transparent 44%),
-          radial-gradient(circle at 45% 92%, rgba(79, 197, 255, 0.1) 0%, transparent 46%),
-          var(--bg);
-        min-height: 100vh;
-      }
-
-      .container {
-        width: min(980px, 92%);
-        margin: 0 auto;
-        padding: 3.25rem 0;
-      }
-
-      .card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 18px;
-        padding: 1.2rem 1.2rem 1.1rem;
-        box-shadow: 0 14px 26px rgba(17, 18, 22, 0.08);
-      }
-
-      h1 {
-        margin: 0 0 0.65rem;
-        font-size: clamp(1.8rem, 4.4vw, 3.2rem);
-        letter-spacing: -0.03em;
-        line-height: 1.08;
-      }
-
-      p {
-        margin: 0.5rem 0;
-        color: var(--muted);
-        line-height: 1.65;
-      }
-
-      .pill {
-        display: inline-block;
-        font-weight: 700;
-        color: var(--text);
-        background: rgba(138, 92, 246, 0.12);
-        border: 1px solid rgba(138, 92, 246, 0.22);
-        padding: 0.35rem 0.6rem;
-        border-radius: 999px;
-        font-size: 0.9rem;
-      }
-
-      .btn {
-        display: inline-block;
-        margin-top: 0.7rem;
-        text-decoration: none;
-        color: #fff;
-        background: var(--accent);
-        padding: 0.6rem 0.85rem;
-        border-radius: 12px;
-        font-weight: 800;
-      }
-
-      .small {
-        margin-top: 0.85rem;
-        font-size: 0.95rem;
-      }
-
-      code {
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-          "Liberation Mono", "Courier New", monospace;
-        font-size: 0.95em;
-      }
-    </style>
   </head>
   <body>
-    <main class="container">
-      <div class="card">
-        <span class="pill">ECON 30 project</span>
-        <h1>Does Value-Based Care Reduce Inequality in Healthcare Outcomes?</h1>
-        <p>
-          This is a placeholder homepage saved back into your
-          <code>ECON30</code> folder. Next, we’ll build the full interactive
-          scrolling data story (charts + map + diagrams) using React/Tailwind.
-        </p>
-        <p class="small">
-          To view this file now: open <code>ECON30/index.html</code> in Finder and
-          double-click it.
-        </p>
-        <a class="btn" href="#" onclick="alert('Next step: scaffold React app here once npm is installed.'); return false;">
-          Next: Build the interactive site
-        </a>
-      </div>
-    </main>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
