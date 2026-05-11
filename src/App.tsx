@@ -34,7 +34,7 @@ export default function App() {
               Value-based care & inequality
             </p>
             <p className="truncate text-[11px] text-ink-secondary">
-              ECON 30 · placeholder data
+              By Amiya Stroumza · ECON 30 · placeholder data
             </p>
           </div>
 

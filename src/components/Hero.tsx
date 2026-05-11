@@ -54,6 +54,9 @@ export default function Hero() {
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-apple-blue">
                 ECON 30 capstone project
               </p>
+              <p className="mt-2 text-[15px] font-medium tracking-tight text-ink sm:text-[16px]">
+                By <span className="font-semibold text-ink">Amiya Stroumza</span>
+              </p>
               <h1 className="dramatic-heading mt-4 text-[40px] font-semibold leading-[1.05] tracking-tight sm:text-[48px] lg:text-[58px]">
                 Value-Based Care Promises Better Outcomes — But Better for Whom?
               </h1>
