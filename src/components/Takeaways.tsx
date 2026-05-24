@@ -1,22 +1,20 @@
 import React from "react";
 import Section from "./Section";
 import Card from "./Card";
+import ThesisBox from "./ThesisBox";
 
 const takeaways = [
   {
     title: "VBC can improve averages",
-    body:
-      "Payment reform may reduce readmissions, hospitalizations, and spending — at least on paper and in the average patient.",
+    body: "Payment reform may reduce readmissions, hospitalizations, and spending for the typical patient.",
   },
   {
-    title: "Equity gains are not automatic",
-    body:
-      "Disadvantaged patients may still experience worse outcomes if models do not reward improvements among higher-risk groups.",
+    title: "Equity is not automatic",
+    body: "Disadvantaged groups may see smaller gains if models reward populations that are easier to manage.",
   },
   {
-    title: "Design matters",
-    body:
-      "Risk adjustment, quality metrics, patient mix, and geography determine whether VBC reduces inequality.",
+    title: "Design determines fairness",
+    body: "Risk adjustment, quality metrics, and explicit equity incentives shape who benefits from reform.",
   },
 ];
 
@@ -24,8 +22,9 @@ export default function Takeaways() {
   return (
     <Section
       id="takeaways"
-      title="Main Takeaways"
-      subtitle="Value-based care is not automatically equitable. Equity requires explicit incentives and measurement."
+      chapter="Conclusion"
+      title="What This Means for Policy"
+      subtitle="Value-based care is a response to real problems in fee-for-service — but it is not a guarantee of greater equity."
       tone="surface"
     >
       <div className="grid gap-4 md:grid-cols-3">
@@ -37,19 +36,12 @@ export default function Takeaways() {
         ))}
       </div>
 
-      <Card className="mt-6 p-5">
-        <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
-          Final thesis
+      <ThesisBox label="Final statement" className="mt-10">
+        <p className="text-[20px] font-medium leading-snug tracking-tight text-ink sm:text-[24px] sm:leading-[1.35]">
+          Payment reform alone does not create equity. Healthcare systems reduce inequality only when
+          incentives are explicitly designed to reward improvements among disadvantaged populations.
         </p>
-        <p className="mt-2 text-[15px] leading-relaxed text-ink-secondary">
-          <span className="font-semibold">
-            Value-based care is not automatically equitable.
-          </span>{" "}
-          It can reduce inequality only if payment models explicitly reward
-          improvements among disadvantaged patients — not just better average outcomes.
-        </p>
-      </Card>
+      </ThesisBox>
     </Section>
   );
 }
-

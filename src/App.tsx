@@ -1,24 +1,27 @@
 import React from "react";
 import Hero from "./components/Hero";
+import WhyReformNeeded from "./components/WhyReformNeeded";
 import BaselineInequality from "./components/BaselineInequality";
 import PaymentModelDiagram from "./components/PaymentModelDiagram";
 import MedicareAdvantageAdoption from "./components/MedicareAdvantageAdoption";
 import DifferenceInDifferences from "./components/DifferenceInDifferences";
+import RiskAdjustment from "./components/RiskAdjustment";
 import EquityGap from "./components/EquityGap";
 import GeographyMap from "./components/GeographyMap";
-import RiskAdjustment from "./components/RiskAdjustment";
 import Takeaways from "./components/Takeaways";
 import Sources from "./components/Sources";
+import NarrativeBridge from "./components/NarrativeBridge";
 
 const nav = [
-  { id: "baseline", label: "Baseline" },
+  { id: "why-reform", label: "Why reform" },
+  { id: "baseline", label: "Inequality" },
   { id: "payment-model", label: "What is VBC?" },
   { id: "adoption", label: "MA adoption" },
   { id: "did", label: "Outcomes" },
+  { id: "risk", label: "Risk adjustment" },
   { id: "equity", label: "Equity" },
   { id: "geography", label: "Geography" },
-  { id: "risk", label: "Risk adjustment" },
-  { id: "takeaways", label: "Takeaways" },
+  { id: "takeaways", label: "Conclusion" },
   { id: "sources", label: "Sources" },
 ];
 
@@ -34,16 +37,16 @@ export default function App() {
               Value-based care & inequality
             </p>
             <p className="truncate text-[11px] text-ink-secondary">
-              By Amiya Stroumza · ECON 30 · placeholder data
+              By Amiya Stroumza · ECON 30
             </p>
           </div>
 
-          <nav className="hidden gap-1 md:flex" aria-label="Page sections">
+          <nav className="hidden gap-0.5 overflow-x-auto md:flex" aria-label="Page sections">
             {nav.map((item) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="relative rounded-full px-3 py-1.5 text-[12px] font-normal text-ink transition-all duration-300 after:absolute after:bottom-0.5 after:left-1/2 after:h-[2px] after:w-0 after:-translate-x-1/2 after:rounded-full after:bg-apple-blue after:transition-all after:duration-300 hover:-translate-y-0.5 hover:bg-white/90 hover:text-apple-blue hover:shadow-glow-sm hover:after:w-[65%]"
+                className="relative shrink-0 rounded-full px-2.5 py-1.5 text-[11px] font-normal text-ink transition-all duration-300 after:absolute after:bottom-0.5 after:left-1/2 after:h-[2px] after:w-0 after:-translate-x-1/2 after:rounded-full after:bg-apple-blue after:transition-all after:duration-300 hover:text-apple-blue hover:after:w-[65%] lg:px-3 lg:text-[12px]"
               >
                 {item.label}
               </a>
@@ -54,13 +57,24 @@ export default function App() {
 
       <main className="relative z-10">
         <Hero />
+        <NarrativeBridge>
+          The U.S. tried to fix a broken payment model. But fixing incentives is not the same as fixing
+          inequality.
+        </NarrativeBridge>
+        <WhyReformNeeded />
+        <NarrativeBridge>
+          Reform entered a system where patients were already starting from unequal baselines.
+        </NarrativeBridge>
         <BaselineInequality />
         <PaymentModelDiagram />
         <MedicareAdvantageAdoption />
+        <NarrativeBridge>
+          Better averages are encouraging — but they answer a different question than equity.
+        </NarrativeBridge>
         <DifferenceInDifferences />
+        <RiskAdjustment />
         <EquityGap />
         <GeographyMap />
-        <RiskAdjustment />
         <Takeaways />
         <Sources />
       </main>
@@ -73,11 +87,6 @@ export default function App() {
               Sources
             </a>{" "}
             lists reference data systems and reports.
-          </p>
-          <p className="mt-2 text-[12px] text-ink-secondary">
-            Local preview:{" "}
-            <span className="font-mono text-[11px] text-ink/80">npm install</span> then{" "}
-            <span className="font-mono text-[11px] text-ink/80">npm run dev</span>.
           </p>
         </div>
       </footer>

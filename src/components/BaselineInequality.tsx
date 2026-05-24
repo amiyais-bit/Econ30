@@ -10,6 +10,7 @@ import {
 } from "recharts";
 import Card from "./Card";
 import Section from "./Section";
+import PullQuote from "./PullQuote";
 import { baselineData } from "../data/baselineData";
 
 type OutcomeKey =
@@ -24,6 +25,25 @@ const outcomeOptions: { key: OutcomeKey; label: string; unit: string }[] = [
     key: "preventableHospitalizations",
     label: "Preventable hospitalizations",
     unit: "per 1,000",
+  },
+];
+
+const barriers = [
+  {
+    title: "Transportation barriers",
+    body: "Missed appointments and delayed care when getting to a clinic or hospital is costly or unreliable.",
+  },
+  {
+    title: "Food insecurity",
+    body: "Nutrition shapes chronic disease risk — yet diet is rarely addressed inside a payment model focused on visits.",
+  },
+  {
+    title: "Provider shortages",
+    body: "Rural and low-income communities often lack enough primary care, mental health, and specialty access.",
+  },
+  {
+    title: "Insurance instability",
+    body: "Coverage gaps and churn interrupt continuity of care, especially for low-wage workers.",
   },
 ];
 
@@ -44,22 +64,33 @@ export default function BaselineInequality() {
   return (
     <Section
       id="baseline"
+      chapter="Part II · The starting line"
       title="Baseline Inequality"
-      subtitle="Before evaluating value-based care, we need to establish the baseline: healthcare outcomes already vary sharply by socioeconomic status."
+      subtitle="Before VBC can be evaluated, we must see the inequality that already exists — shaped by income, place, and social conditions long before a patient reaches the exam room."
     >
+      <PullQuote className="mb-8 max-w-3xl">
+        Patients do not enter the healthcare system on equal footing.
+      </PullQuote>
+
+      <div className="mb-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {barriers.map((b) => (
+          <Card key={b.title} className="p-4">
+            <h4 className="text-[15px] font-semibold text-ink">{b.title}</h4>
+            <p className="mt-2 text-[13px] leading-relaxed text-ink-secondary">{b.body}</p>
+          </Card>
+        ))}
+      </div>
+
       <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr] lg:items-start">
         <Card className="p-5">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
-                Chart
+                Outcome gaps by income
               </p>
               <h3 className="mt-2 text-[21px] font-semibold text-ink">
-                Baseline Outcome Inequality by Income Group
+                Inequality before reform begins
               </h3>
-              <p className="mt-1 text-[15px] text-ink-secondary">
-                Placeholder data — replace later with your real outcome series.
-              </p>
             </div>
             <label className="text-[14px] font-semibold text-ink">
               Select outcome
@@ -99,26 +130,24 @@ export default function BaselineInequality() {
         </Card>
 
         <div className="space-y-4">
-          <Card className="p-5">
-            <h4 className="text-[19px] font-semibold text-ink">
-              Patients do not enter the healthcare system on equal footing.
-            </h4>
-            <p className="mt-2 text-ink-secondary">
-              The lowest-income group has a higher <span className="font-semibold">{meta.label.toLowerCase()}</span>{" "}
-              than the highest-income group, showing that patients enter the system with unequal baseline risks.
+          <Card className="border-apple-blue/15 p-5">
+            <h4 className="text-[19px] font-semibold text-ink">Why this matters for VBC</h4>
+            <p className="mt-2 text-[15px] leading-relaxed text-ink-secondary">
+              Value-based care starts from unequal baselines. If disadvantaged groups begin sicker and
+              face more barriers, improving the population average is not the same as closing gaps.
             </p>
           </Card>
 
           <Card className="p-5">
             <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
-              Quick comparison
+              Income gap (placeholder)
             </p>
             <p className="mt-2 text-[15px] text-ink-secondary">
-              Lowest income: <span className="font-bold">{fmt(lowest)}</span> {meta.unit}
+              Lowest income: <span className="font-bold text-ink">{fmt(lowest)}</span> {meta.unit}
               <br />
-              Highest income: <span className="font-bold">{fmt(highest)}</span> {meta.unit}
+              Highest income: <span className="font-bold text-ink">{fmt(highest)}</span> {meta.unit}
               <br />
-              Gap: <span className="font-bold">{fmt(lowest - highest)}</span> {meta.unit}
+              Gap: <span className="font-bold text-ink">{fmt(lowest - highest)}</span> {meta.unit}
             </p>
           </Card>
         </div>
@@ -126,4 +155,3 @@ export default function BaselineInequality() {
     </Section>
   );
 }
-

@@ -85,8 +85,9 @@ export default function GeographyMap() {
   return (
     <Section
       id="geography"
-      title="Geographic Inequality"
-      subtitle="The geography of reform does not perfectly match the geography of need. Use the buttons to recolor the map."
+      chapter="Part VIII · Uneven diffusion"
+      title="Where VBC Expands — and Where It Doesn't"
+      subtitle="Reform diffusion may bypass high-need communities while wealthier regions adopt VBC infrastructure more quickly."
     >
       <Card className="p-5">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
@@ -95,10 +96,10 @@ export default function GeographyMap() {
               Map
             </p>
             <h3 className="mt-2 text-[21px] font-semibold text-ink">
-              Geography of Value-Based Care and Healthcare Inequality
+              Geographic mismatch between reform and need
             </h3>
             <p className="mt-1 text-[15px] text-ink-secondary">
-              {meta.legend}. Placeholder state-level values (CA, TX, NY, FL).
+              {meta.legend}. Toggle metrics to see whether VBC presence aligns with poverty and poor outcomes.
             </p>
           </div>
 
@@ -207,8 +208,8 @@ export default function GeographyMap() {
         </div>
 
         <p className="mt-5 text-[15px] leading-relaxed text-ink-secondary">
-          If VBC is concentrated in already-resourced regions, then reform may not
-          reach the patients and places with the greatest need.
+          If VBC concentrates in already-resourced regions, payment reform may improve averages
+          nationally while doing little for the places and patients with the greatest unmet need.
         </p>
       </Card>
     </Section>

@@ -77,3 +77,9 @@ body {
     background-position: 0% 50%;
   }
 }
+
+@layer utilities {
+  .narrative-divider {
+    @apply mx-auto h-px w-16 bg-gradient-to-r from-transparent via-apple-blue/40 to-transparent;
+  }
+}

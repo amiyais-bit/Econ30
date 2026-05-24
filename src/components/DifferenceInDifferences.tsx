@@ -11,6 +11,7 @@ import {
 } from "recharts";
 import Section from "./Section";
 import Card from "./Card";
+import ThesisBox from "./ThesisBox";
 import { didData } from "../data/didData";
 
 type Outcome = "readmission" | "spending" | "preventable";
@@ -19,20 +20,12 @@ const adoptionYear = 2019;
 
 const outcomeMeta: Record<
   Outcome,
-  { label: string; unit: string; vbc: string; control: string; series: { year: number; vbc: number; control: number }[] }
+  { label: string; unit: string; series: { year: number; vbc: number; control: number }[] }
 > = {
-  readmission: {
-    label: "Readmission rate",
-    unit: "%",
-    vbc: "VBC group",
-    control: "Control group",
-    series: didData,
-  },
+  readmission: { label: "Readmission rate", unit: "%", series: didData },
   spending: {
     label: "Medicare spending per beneficiary",
     unit: "$ (index)",
-    vbc: "VBC group",
-    control: "Control group",
     series: didData.map((d) => ({
       year: d.year,
       vbc: 100 - (18.2 - d.vbc) * 4.0,
@@ -42,8 +35,6 @@ const outcomeMeta: Record<
   preventable: {
     label: "Preventable hospitalizations",
     unit: "per 1,000 (index)",
-    vbc: "VBC group",
-    control: "Control group",
     series: didData.map((d) => ({
       year: d.year,
       vbc: 40 - (18.2 - d.vbc) * 2.4,
@@ -56,6 +47,11 @@ function fmt(n: number) {
   return n.toFixed(1);
 }
 
+const comparisonRows = [
+  { question: "Did average outcomes improve?", answer: "Possibly yes" },
+  { question: "Did disparities shrink?", answer: "Less clear" },
+];
+
 export default function DifferenceInDifferences() {
   const [outcome, setOutcome] = useState<Outcome>("readmission");
   const [showMarker, setShowMarker] = useState(true);
@@ -64,23 +60,50 @@ export default function DifferenceInDifferences() {
   return (
     <Section
       id="did"
-      title="Main Analysis: Did Outcomes Improve After VBC Adoption?"
-      subtitle="This is a difference-in-differences style view: compare the VBC and control trends before and after adoption."
+      chapter="Part V · The evidence"
+      title="Outcomes Analysis"
+      subtitle="Did VBC improve outcomes overall? This difference-in-differences view compares trends before and after adoption — but average improvement is not the same as equity."
     >
+      <div className="mb-8 grid gap-6 lg:grid-cols-[1fr_0.55fr]">
+        <ThesisBox label="Two different questions">
+          <p>
+            <span className="font-semibold text-ink">Average improvement</span> asks whether outcomes
+            got better on the whole.{" "}
+            <span className="font-semibold text-ink">Equity improvement</span> asks whether
+            disadvantaged patients closed the gap with everyone else.
+          </p>
+        </ThesisBox>
+
+        <Card className="overflow-hidden p-0">
+          <table className="w-full text-left text-[14px]">
+            <thead>
+              <tr className="border-b border-black/[0.08] bg-surface/80">
+                <th className="px-4 py-3 font-semibold text-ink">Question</th>
+                <th className="px-4 py-3 font-semibold text-ink">Answer</th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonRows.map((row) => (
+                <tr key={row.question} className="border-b border-black/[0.06] last:border-0">
+                  <td className="px-4 py-3 text-ink-secondary">{row.question}</td>
+                  <td className="px-4 py-3 font-semibold text-apple-blue">{row.answer}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </Card>
+      </div>
+
       <Card className="p-5">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
-              Chart
-            </p>
-            <h3 className="mt-2 text-[21px] font-semibold text-ink">
-              Outcomes Before and After VBC Adoption
+            <h3 className="text-[21px] font-semibold text-ink">
+              Outcomes before and after VBC adoption
             </h3>
-            <p className="mt-1 text-[15px] text-ink-secondary">
-              Adoption year assumed: <span className="font-semibold">{adoptionYear}</span>
+            <p className="mt-1 text-[14px] text-ink-secondary">
+              Adoption year (placeholder): {adoptionYear}
             </p>
           </div>
-
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <label className="text-[14px] font-semibold text-ink">
               Outcome
@@ -94,7 +117,6 @@ export default function DifferenceInDifferences() {
                 <option value="preventable">Preventable hospitalizations</option>
               </select>
             </label>
-
             <label className="mt-1 inline-flex items-center gap-2 text-[14px] font-semibold text-ink sm:mt-6">
               <input
                 type="checkbox"
@@ -114,38 +136,12 @@ export default function DifferenceInDifferences() {
               <XAxis dataKey="year" tick={{ fontSize: 12 }} />
               <YAxis tick={{ fontSize: 12 }} />
               <Tooltip
-                formatter={(value, name, item) => {
-                  const num =
-                    typeof value === "number" ? value : Number.parseFloat(String(value));
-                  const row = (
-                    item as { payload?: { year: number; vbc: number; control: number } } | undefined
-                  )?.payload;
-                  const diff =
-                    row && typeof row.vbc === "number" && typeof row.control === "number"
-                      ? row.vbc - row.control
-                      : undefined;
-                  const label =
-                    name === "vbc" ? meta.vbc : name === "control" ? meta.control : String(name);
-                  const extra = diff !== undefined ? ` (Δ ${fmt(diff)})` : "";
-                  return [`${fmt(Number.isFinite(num) ? num : 0)} ${meta.unit}${extra}`, label];
+                formatter={(value: number, name) => {
+                  const label = name === "vbc" ? "VBC group" : "Control group";
+                  return [`${fmt(value)} ${meta.unit}`, label];
                 }}
-                labelFormatter={(label) => `Year: ${label}`}
-                contentStyle={{
-                  borderRadius: 12,
-                  border: "1px solid rgba(17, 18, 22, 0.12)",
-                  boxShadow: "0 12px 26px rgba(17, 18, 22, 0.08)",
-                }}
-                labelStyle={{ color: "#1d1d1f", fontWeight: 600 }}
               />
-
-              <Line
-                type="monotone"
-                dataKey="vbc"
-                stroke="#059669"
-                strokeWidth={3}
-                dot={{ r: 3 }}
-                name="vbc"
-              />
+              <Line type="monotone" dataKey="vbc" stroke="#059669" strokeWidth={3} dot={{ r: 3 }} />
               <Line
                 type="monotone"
                 dataKey="control"
@@ -153,48 +149,24 @@ export default function DifferenceInDifferences() {
                 strokeOpacity={0.35}
                 strokeWidth={3}
                 dot={{ r: 3 }}
-                name="control"
               />
-
               {showMarker ? (
                 <ReferenceLine
                   x={adoptionYear}
                   stroke="rgba(17, 18, 22, 0.45)"
                   strokeDasharray="6 6"
-                  label={{
-                    value: "VBC adoption begins",
-                    position: "insideTopLeft",
-                    fill: "rgba(17, 18, 22, 0.75)",
-                    fontSize: 12,
-                  }}
+                  label={{ value: "VBC adoption", position: "insideTopLeft", fontSize: 12 }}
                 />
               ) : null}
             </LineChart>
           </ResponsiveContainer>
         </div>
 
-        <div className="mt-5 grid gap-4 lg:grid-cols-2">
-          <Card className="p-5">
-            <h4 className="text-[19px] font-semibold text-ink">
-              After adoption, did VBC patients improve faster than similar non-VBC patients?
-            </h4>
-            <p className="mt-2 text-ink-secondary">
-              If the VBC group improves more quickly after {adoptionYear} than the control group,
-              this suggests VBC may be associated with better outcomes. However, this does not yet prove that inequality declined.
-            </p>
-          </Card>
-          <Card className="p-5">
-            <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
-              Note
-            </p>
-            <p className="mt-2 text-[15px] text-ink-secondary">
-              This is a teaching-friendly “causal-ish” visualization. When you replace placeholder data,
-              you can plug in provider/ACO adoption timing, matched controls, or event-study estimates.
-            </p>
-          </Card>
-        </div>
+        <p className="mt-5 text-[15px] leading-relaxed text-ink-secondary">
+          If the VBC line improves faster after adoption, that suggests payment reform may work on
+          average. The equity question — whether gaps narrowed — requires a separate analysis below.
+        </p>
       </Card>
     </Section>
   );
 }
-

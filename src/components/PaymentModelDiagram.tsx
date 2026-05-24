@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import Section from "./Section";
 import Card from "./Card";
+import ThesisBox from "./ThesisBox";
 
 type Model = "ffs" | "vbc";
 
@@ -8,9 +9,9 @@ function Step(props: { label: string; active: boolean }) {
   return (
     <div
       className={[
-        "rounded-[14px] border px-4 py-3 text-sm shadow-apple transition",
+        "rounded-[14px] border px-3 py-2.5 text-[13px] shadow-apple transition",
         props.active
-          ? "border-black/[0.08] bg-white shadow-apple-md"
+          ? "border-apple-blue/25 bg-white shadow-apple-md"
           : "border-black/[0.06] bg-white/50 opacity-55",
       ].join(" ")}
     >
@@ -21,8 +22,8 @@ function Step(props: { label: string; active: boolean }) {
 
 function Arrow() {
   return (
-    <div className="flex items-center justify-center text-ink-secondary">
-      <span className="text-xl">→</span>
+    <div className="flex items-center justify-center text-apple-blue">
+      <span className="text-lg">→</span>
     </div>
   );
 }
@@ -33,26 +34,26 @@ export default function PaymentModelDiagram() {
   const subtitle = useMemo(
     () =>
       selected === "ffs"
-        ? "Fee-for-service revenue increases with the number of services delivered."
-        : "Value-based care rewards quality, prevention, and cost control.",
+        ? "Fee-for-service pays for activity."
+        : "Value-based care pays for results.",
     [selected]
   );
 
   return (
     <Section
       id="payment-model"
+      chapter="Part III · The reform"
       title="What Is Value-Based Care?"
-      subtitle="VBC changes what providers are paid to optimize. Use the toggle to highlight one model."
+      subtitle="VBC shifts the payment logic from volume to outcomes — a direct response to the fee-for-service problems above."
     >
+      <ThesisBox label="The incentive transition" className="mb-8 max-w-3xl">
+        Fee-for-service → outcome-based reimbursement. Providers are evaluated on quality, prevention,
+        and total cost — not just how many services they deliver.
+      </ThesisBox>
+
       <Card className="p-5">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
-              Payment model
-            </p>
-            <p className="mt-1 text-[15px] text-ink-secondary">{subtitle}</p>
-          </div>
-
+          <p className="text-[15px] text-ink-secondary">{subtitle}</p>
           <div className="inline-flex rounded-full border border-black/[0.08] bg-surface/90 p-1">
             <button
               type="button"
@@ -81,54 +82,30 @@ export default function PaymentModelDiagram() {
           </div>
         </div>
 
-        <div className="mt-6 grid gap-6 lg:grid-cols-2">
+        <div className="mt-6 grid gap-8 lg:grid-cols-2">
           <div>
-            <h3 className="text-[19px] font-semibold text-ink">Fee-for-Service flow</h3>
-            <div className="mt-3 grid grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] items-center gap-2">
-              <Step
-                label="Patient gets sick"
-                active={selected === "ffs"}
-              />
+            <h3 className="text-[17px] font-semibold text-ink">Fee-for-service</h3>
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <Step label="Patient gets sick" active={selected === "ffs"} />
               <Arrow />
-              <Step
-                label="Provider delivers service"
-                active={selected === "ffs"}
-              />
+              <Step label="Deliver service" active={selected === "ffs"} />
               <Arrow />
-              <Step
-                label="Paid per service"
-                active={selected === "ffs"}
-              />
+              <Step label="Paid per unit" active={selected === "ffs"} />
               <Arrow />
-              <Step
-                label="More volume = more revenue"
-                active={selected === "ffs"}
-              />
+              <Step label="More volume = more pay" active={selected === "ffs"} />
             </div>
           </div>
 
           <div>
-            <h3 className="text-[19px] font-semibold text-ink">Value-Based Care flow</h3>
-            <div className="mt-3 grid grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] items-center gap-2">
-              <Step
-                label="Population assigned"
-                active={selected === "vbc"}
-              />
+            <h3 className="text-[17px] font-semibold text-ink">Value-based care</h3>
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <Step label="Population assigned" active={selected === "vbc"} />
               <Arrow />
-              <Step
-                label="Manage health over time"
-                active={selected === "vbc"}
-              />
+              <Step label="Manage health over time" active={selected === "vbc"} />
               <Arrow />
-              <Step
-                label="Evaluated on quality/cost"
-                active={selected === "vbc"}
-              />
+              <Step label="Quality & cost measured" active={selected === "vbc"} />
               <Arrow />
-              <Step
-                label="Better outcomes → higher payment"
-                active={selected === "vbc"}
-              />
+              <Step label="Better outcomes → higher pay" active={selected === "vbc"} />
             </div>
           </div>
         </div>
@@ -136,4 +113,3 @@ export default function PaymentModelDiagram() {
     </Section>
   );
 }
-
