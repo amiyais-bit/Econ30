@@ -79,9 +79,9 @@ export default function MedicareAdvantageAdoption() {
                 <Line
                   type="monotone"
                   dataKey="share"
-                  stroke="#0071e3"
+                  stroke="#059669"
                   strokeWidth={2.5}
-                  dot={{ fill: "#0071e3", strokeWidth: 0, r: 4 }}
+                  dot={{ fill: "#059669", strokeWidth: 0, r: 4 }}
                   activeDot={{ r: 6 }}
                 />
               </LineChart>
@@ -134,7 +134,7 @@ export default function MedicareAdvantageAdoption() {
                     maxWidth: 280,
                   }}
                 />
-                <Bar dataKey="weight" fill="#0071e3" radius={[0, 8, 8, 0]} barSize={18} />
+                <Bar dataKey="weight" fill="#059669" radius={[0, 8, 8, 0]} barSize={18} />
               </BarChart>
             </ResponsiveContainer>
           </div>

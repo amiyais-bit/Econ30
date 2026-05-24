@@ -97,7 +97,7 @@ export default function EquityGap() {
               <Line
                 type="monotone"
                 dataKey="gap"
-                stroke="#0071e3"
+                stroke="#059669"
                 strokeWidth={3}
                 dot={{ r: 3 }}
               />

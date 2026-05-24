@@ -48,10 +48,10 @@ function colorScale(value: number | undefined, metric: Metric): string {
   };
   const [min, max] = ranges[metric];
   const t = clamp01((value - min) / (max - min));
-  // Apple-like blue ramp
-  const r = 0;
-  const g = 113;
-  const b = 227;
+  // Green ramp
+  const r = 5;
+  const g = 150;
+  const b = 105;
   const alpha = 0.1 + t * 0.55;
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
@@ -193,7 +193,7 @@ export default function GeographyMap() {
                           default: { outline: "none" },
                           hover: {
                             outline: "none",
-                            fill: "rgba(0, 113, 227, 0.35)",
+                            fill: "rgba(5, 150, 105, 0.35)",
                           },
                           pressed: { outline: "none" },
                         }}

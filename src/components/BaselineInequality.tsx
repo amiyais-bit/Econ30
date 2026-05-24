@@ -92,7 +92,7 @@ export default function BaselineInequality() {
                     boxShadow: "0 12px 26px rgba(17, 18, 22, 0.08)",
                   }}
                 />
-                <Bar dataKey={outcome} fill="#0071e3" radius={[10, 10, 0, 0]} />
+                <Bar dataKey={outcome} fill="#059669" radius={[10, 10, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>

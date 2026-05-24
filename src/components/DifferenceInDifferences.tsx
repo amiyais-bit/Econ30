@@ -141,7 +141,7 @@ export default function DifferenceInDifferences() {
               <Line
                 type="monotone"
                 dataKey="vbc"
-                stroke="#0071e3"
+                stroke="#059669"
                 strokeWidth={3}
                 dot={{ r: 3 }}
                 name="vbc"
