@@ -60,7 +60,21 @@ export const sources: SourceEntry[] = [
   },
   {
     category: "Geography & socioeconomic context",
-    title: "American Community Survey (ACS)",
+    title: "Average value-based purchasing scores by state",
+    publisher: "Definitive Healthcare (CMS data)",
+    description:
+      "State-level average Hospital VBP total performance scores used on the geography map (Oct 2024 metrics update).",
+    url: "https://www.definitivehc.com/resources/healthcare-insights/average-value-based-purchasing-scores-by-state",
+  },
+  {
+    category: "Geography & socioeconomic context",
+    title: "Poverty (Families below poverty) by State",
+    publisher: "HDPulse / NIMHD (ACS)",
+    description:
+      "Family poverty rates by state, 2020–2024, used on the geography map.",
+    url: "https://hdpulse.nimhd.nih.gov/data/geography",
+  },
+  {
     publisher: "U.S. Census Bureau",
     description: "Income, poverty, and demographic estimates for state or county mapping.",
     url: "https://www.census.gov/programs-surveys/acs",
