@@ -3,6 +3,7 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
+  Cell,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -11,7 +12,23 @@ import {
 import Card from "./Card";
 import Section from "./Section";
 import PullQuote from "./PullQuote";
-import { usSpendingOutcomes } from "../data/spendingData";
+import {
+  healthSpendingPerCapita2024,
+  SPENDING_SOURCE_TITLE,
+  SPENDING_SOURCE_URL,
+} from "../data/spendingData";
+
+const barFill: Record<string, string> = {
+  us: "#0071e3",
+  comparable: "#5ac8fa",
+  default: "#d1d1d6",
+};
+
+function barColor(highlight?: "us" | "comparable") {
+  if (highlight === "us") return barFill.us;
+  if (highlight === "comparable") return barFill.comparable;
+  return barFill.default;
+}
 
 const problems = [
   {
@@ -92,28 +109,46 @@ export default function WhyReformNeeded() {
 
           <Card className="p-5">
             <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
-              Spending vs. outcomes
+              Spending vs. peers
             </p>
             <h3 className="mt-2 text-[19px] font-semibold text-ink">High spending, uneven results</h3>
-            <p className="mt-1 text-[14px] text-ink-secondary">
-              Illustrative OECD-style comparison — placeholder for your paper&apos;s sources.
+            <p className="mt-1 text-[13px] leading-relaxed text-ink-secondary">
+              {SPENDING_SOURCE_TITLE}.{" "}
+              <a
+                href={SPENDING_SOURCE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-apple-blue hover:underline"
+              >
+                Peterson-KFF Health System Tracker
+              </a>
+              {" "}
+              (CMS NHEA for the U.S.; OECD for peer countries).
             </p>
-            <div className="mt-4 h-[260px]">
+            <div className="mt-4 h-[400px]">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
-                  data={usSpendingOutcomes}
-                  margin={{ top: 8, right: 8, left: 0, bottom: 8 }}
+                  layout="vertical"
+                  data={healthSpendingPerCapita2024}
+                  margin={{ top: 4, right: 16, left: 4, bottom: 4 }}
                 >
-                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(15, 23, 42, 0.1)" />
-                  <XAxis dataKey="label" tick={{ fontSize: 11 }} />
-                  <YAxis
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(15, 23, 42, 0.1)" horizontal={false} />
+                  <XAxis
+                    type="number"
                     tick={{ fontSize: 11 }}
                     tickFormatter={(v) => `$${(Number(v) / 1000).toFixed(0)}k`}
+                  />
+                  <YAxis
+                    type="category"
+                    dataKey="label"
+                    width={148}
+                    tick={{ fontSize: 11 }}
+                    reversed
                   />
                   <Tooltip
                     formatter={(value: number) => [
                       `$${value.toLocaleString()}`,
-                      "Health spending per capita",
+                      "Health consumption per capita",
                     ]}
                     contentStyle={{
                       borderRadius: 12,
@@ -121,13 +156,19 @@ export default function WhyReformNeeded() {
                       boxShadow: "0 12px 26px rgba(17, 18, 22, 0.08)",
                     }}
                   />
-                  <Bar dataKey="spendingPerCapita" fill="#0071e3" radius={[8, 8, 0, 0]} />
+                  <Bar dataKey="spendingPerCapita" radius={[0, 6, 6, 0]} barSize={18}>
+                    {healthSpendingPerCapita2024.map((row) => (
+                      <Cell key={row.label} fill={barColor(row.highlight)} />
+                    ))}
+                  </Bar>
                 </BarChart>
               </ResponsiveContainer>
             </div>
-            <p className="mt-3 text-[13px] text-ink-secondary">
-              The U.S. bar towers above peers — yet life expectancy often lags. That gap is the
-              policy problem VBC was meant to address.
+            <p className="mt-3 text-[13px] leading-relaxed text-ink-secondary">
+              The U.S. spent <span className="font-semibold text-ink">$14,775</span> per person —
+              nearly twice the <span className="font-semibold text-ink">$7,860</span> comparable-country
+              average — yet outcomes often lag peers. That gap is the policy problem VBC was meant to
+              address.
             </p>
           </Card>
         </div>

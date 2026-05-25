@@ -82,7 +82,7 @@ export default function App() {
       <footer className="relative z-10 border-t border-black/[0.08] bg-surface/95 py-12 backdrop-blur-md">
         <div className="mx-auto w-full max-w-content px-5 sm:px-6">
           <p className="text-[12px] text-ink-secondary">
-            Built for ECON 30. Geography and baseline inequality use published data; other charts may be illustrative.{" "}
+            Built for ECON 30. Geography, baseline inequality, and health spending comparison use published data; other charts may be illustrative.{" "}
             <a href="#sources" className="font-medium text-apple-blue hover:underline">
               Sources
             </a>{" "}

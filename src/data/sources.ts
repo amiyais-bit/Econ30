@@ -13,6 +13,22 @@ export type SourceEntry = {
 
 export const sources: SourceEntry[] = [
   {
+    category: "Health spending & reform context",
+    title:
+      "Health consumption expenditures per capita, 2024 (current prices and PPP adjusted)",
+    publisher: "Peterson-KFF Health System Tracker",
+    description:
+      "How does health spending in the U.S. compare to other countries? — chart used in “High spending, uneven results” (CMS NHEA for U.S.; OECD for peers).",
+    url: "https://www.healthsystemtracker.org/chart-collection/health-spending-u-s-compare-countries/#Health%20consumption%20expenditures%20per%20capita,%20U.S.%20dollars,%202024%20(current%20prices%20and%20PPP%20adjusted)",
+  },
+  {
+    category: "Health spending & reform context",
+    title: "National Health Expenditure Accounts",
+    publisher: "Centers for Medicare & Medicaid Services (CMS)",
+    description: "Official U.S. health spending totals underlying the 2024 per-capita figure.",
+    url: "https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data",
+  },
+  {
     category: "Medicare Advantage & enrollment",
     title: "Medicare Advantage / Part D enrollment data",
     publisher: "Centers for Medicare & Medicaid Services (CMS)",
