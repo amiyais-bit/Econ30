@@ -75,6 +75,8 @@ export const sources: SourceEntry[] = [
     url: "https://hdpulse.nimhd.nih.gov/data/geography",
   },
   {
+    category: "Geography & socioeconomic context",
+    title: "American Community Survey (ACS)",
     publisher: "U.S. Census Bureau",
     description: "Income, poverty, and demographic estimates for state or county mapping.",
     url: "https://www.census.gov/programs-surveys/acs",
