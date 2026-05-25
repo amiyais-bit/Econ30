@@ -1,6 +1,6 @@
 /**
- * Reference links for the project. Site charts still use placeholder values;
- * replace series using data from these publishers where applicable.
+ * Reference links for published data used on this site.
+ * Geography and baseline inequality charts use sourced values; other sections may still be illustrative.
  */
 
 export type SourceEntry = {
@@ -42,6 +42,30 @@ export const sources: SourceEntry[] = [
     description:
       "Alternative payment models, accountable care, and demonstration evaluations relevant to VBC.",
     url: "https://innovation.cms.gov/",
+  },
+  {
+    category: "Outcomes & inequality",
+    title: "Potentially Preventable Hospitalizations for Acute and Chronic Conditions, 2008 (Statistical Brief #99)",
+    publisher: "AHRQ / HCUP",
+    description:
+      "Percent of hospital stays that were potentially preventable by community income quartile (baseline inequality chart).",
+    url: "https://hcup-us.ahrq.gov/reports/statbriefs/sb99.jsp",
+  },
+  {
+    category: "Outcomes & inequality",
+    title: "Neighborhood Household Income and Trends in 30-Day Readmission for Patients With Heart Failure",
+    publisher: "JACC Heart Failure (NRD)",
+    description:
+      "Adjusted 30-day all-cause readmission rates by neighborhood income quartile, 2019 (baseline inequality chart).",
+    url: "https://www.jacc.org/doi/10.1016/j.jchf.2022.10.003",
+  },
+  {
+    category: "Outcomes & inequality",
+    title: "The Association Between Income and Life Expectancy in the United States, 2001–2014",
+    publisher: "JAMA (Chetty et al.)",
+    description:
+      "Race-adjusted life expectancy at age 40 by national income quartile (baseline inequality chart).",
+    url: "https://jamanetwork.com/journals/jama/fullarticle/2513561",
   },
   {
     category: "Outcomes & inequality",

@@ -11,22 +11,13 @@ import {
 import Card from "./Card";
 import Section from "./Section";
 import PullQuote from "./PullQuote";
-import { baselineData } from "../data/baselineData";
+import {
+  baselineData,
+  baselineOutcomeMeta,
+  type BaselineOutcomeKey,
+} from "../data/baselineData";
 
-type OutcomeKey =
-  | "readmissionRate"
-  | "mortalityRate"
-  | "preventableHospitalizations";
-
-const outcomeOptions: { key: OutcomeKey; label: string; unit: string }[] = [
-  { key: "readmissionRate", label: "Readmission rate", unit: "%" },
-  { key: "mortalityRate", label: "Mortality rate", unit: "%" },
-  {
-    key: "preventableHospitalizations",
-    label: "Preventable hospitalizations",
-    unit: "per 1,000",
-  },
-];
+const outcomeKeys = Object.keys(baselineOutcomeMeta) as BaselineOutcomeKey[];
 
 const barriers = [
   {
@@ -47,19 +38,31 @@ const barriers = [
   },
 ];
 
-function fmt(n: number) {
-  return n.toFixed(1);
+function fmt(n: number, decimals = 1) {
+  return n.toFixed(decimals);
 }
 
 export default function BaselineInequality() {
-  const [outcome, setOutcome] = useState<OutcomeKey>("readmissionRate");
-  const meta = useMemo(
-    () => outcomeOptions.find((o) => o.key === outcome)!,
-    [outcome]
-  );
+  const [outcome, setOutcome] = useState<BaselineOutcomeKey>("readmissionRate");
+  const meta = baselineOutcomeMeta[outcome];
+  const decimals = outcome === "lifeExpectancyAt40" ? 1 : 1;
 
   const lowest = baselineData[0]?.[outcome] ?? 0;
   const highest = baselineData[baselineData.length - 1]?.[outcome] ?? 0;
+  const gap =
+    outcome === "lifeExpectancyAt40"
+      ? highest - lowest
+      : lowest - highest;
+
+  const footnote = useMemo(() => {
+    if (outcome === "readmissionRate") {
+      return "Heart failure index admissions (NRD). 2019 neighborhood income cutoffs: Q1 ≤$47,999; Q4 ≥$82,000.";
+    }
+    if (outcome === "preventableHospitalizations") {
+      return "Share of all inpatient stays flagged as potentially preventable (AHRQ Prevention Quality Indicators). By median ZIP household income.";
+    }
+    return "Average race-adjusted life expectancy at age 40 across income percentiles within each national quartile (men and women combined).";
+  }, [outcome]);
 
   return (
     <Section
@@ -86,22 +89,25 @@ export default function BaselineInequality() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
-                Outcome gaps by income
+                Outcome gaps by income quartile
               </p>
               <h3 className="mt-2 text-[21px] font-semibold text-ink">
                 Inequality before reform begins
               </h3>
+              <p className="mt-1 text-[13px] text-ink-secondary">
+                {meta.source} ({meta.year})
+              </p>
             </div>
             <label className="text-[14px] font-semibold text-ink">
               Select outcome
               <select
                 className="mt-2 w-full rounded-[12px] border border-black/[0.08] bg-white px-3 py-2 text-[14px] shadow-apple"
                 value={outcome}
-                onChange={(e) => setOutcome(e.target.value as OutcomeKey)}
+                onChange={(e) => setOutcome(e.target.value as BaselineOutcomeKey)}
               >
-                {outcomeOptions.map((o) => (
-                  <option key={o.key} value={o.key}>
-                    {o.label}
+                {outcomeKeys.map((key) => (
+                  <option key={key} value={key}>
+                    {baselineOutcomeMeta[key].label}
                   </option>
                 ))}
               </select>
@@ -115,7 +121,7 @@ export default function BaselineInequality() {
                 <XAxis dataKey="group" tick={{ fontSize: 12 }} interval={0} angle={-10} height={64} />
                 <YAxis tick={{ fontSize: 12 }} />
                 <Tooltip
-                  formatter={(value: number) => [`${fmt(value)} ${meta.unit}`, meta.label]}
+                  formatter={(value: number) => [`${fmt(value, decimals)} ${meta.unit}`, meta.label]}
                   labelStyle={{ color: "#111216", fontWeight: 700 }}
                   contentStyle={{
                     borderRadius: 12,
@@ -127,6 +133,8 @@ export default function BaselineInequality() {
               </BarChart>
             </ResponsiveContainer>
           </div>
+
+          <p className="mt-3 text-[12px] leading-relaxed text-ink-secondary">{footnote}</p>
         </Card>
 
         <div className="space-y-4">
@@ -140,14 +148,16 @@ export default function BaselineInequality() {
 
           <Card className="p-5">
             <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
-              Income gap (placeholder)
+              Income quartile gap (published data)
             </p>
             <p className="mt-2 text-[15px] text-ink-secondary">
-              Lowest income: <span className="font-bold text-ink">{fmt(lowest)}</span> {meta.unit}
+              {outcome === "lifeExpectancyAt40" ? "Lowest income quartile" : "Q1 (lowest income)"}:{" "}
+              <span className="font-bold text-ink">{fmt(lowest, decimals)}</span> {meta.unit}
               <br />
-              Highest income: <span className="font-bold text-ink">{fmt(highest)}</span> {meta.unit}
+              {outcome === "lifeExpectancyAt40" ? "Highest income quartile" : "Q4 (highest income)"}:{" "}
+              <span className="font-bold text-ink">{fmt(highest, decimals)}</span> {meta.unit}
               <br />
-              Gap: <span className="font-bold text-ink">{fmt(lowest - highest)}</span> {meta.unit}
+              Gap: <span className="font-bold text-ink">{fmt(gap, decimals)}</span> {meta.unit}
             </p>
           </Card>
         </div>

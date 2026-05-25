@@ -10,7 +10,7 @@ export default function Sources() {
     <Section
       id="sources"
       title="Sources"
-      subtitle="Reference organizations and data systems you can use to replace placeholder figures on this site. Links open in a new tab."
+      subtitle="Data sources behind the geography map and baseline inequality chart, plus references for other sections. Links open in a new tab."
     >
       <div className="grid gap-8">
         {[...grouped.entries()].map(([category, entries]) => (
