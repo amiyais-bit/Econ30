@@ -129,7 +129,7 @@ export default function EquityGap() {
               <XAxis dataKey="year" tick={{ fontSize: 12 }} />
               <YAxis tick={{ fontSize: 12 }} />
               <Tooltip formatter={(value: number) => [`${fmt(value)} ${unit}`, "Gap"]} />
-              <Line type="monotone" dataKey="gap" stroke="#059669" strokeWidth={3} dot={{ r: 3 }} />
+              <Line type="monotone" dataKey="gap" stroke="#0071e3" strokeWidth={3} dot={{ r: 3 }} />
               <ReferenceLine x={adoptionYear} stroke="rgba(17, 18, 22, 0.45)" strokeDasharray="6 6" />
             </LineChart>
           </ResponsiveContainer>

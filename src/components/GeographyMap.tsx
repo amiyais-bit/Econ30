@@ -94,9 +94,9 @@ function colorScale(value: number | undefined, metric: Metric): string {
   if (value === undefined) return "rgba(15, 23, 42, 0.06)";
   const [min, max] = metricMeta[metric].range;
   const t = clamp01((value - min) / (max - min));
-  const r = 5;
-  const g = 150;
-  const b = 105;
+  const r = 0;
+  const g = 113;
+  const b = 227;
   const alpha = 0.12 + t * 0.58;
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
@@ -233,7 +233,7 @@ export default function GeographyMap() {
                         onMouseLeave={() => setTooltip(null)}
                         style={{
                           default: { outline: "none" },
-                          hover: { outline: "none", fill: "rgba(5, 150, 105, 0.35)" },
+                          hover: { outline: "none", fill: "rgba(0, 113, 227, 0.35)" },
                           pressed: { outline: "none" },
                         }}
                       />

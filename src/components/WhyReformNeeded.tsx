@@ -121,7 +121,7 @@ export default function WhyReformNeeded() {
                       boxShadow: "0 12px 26px rgba(17, 18, 22, 0.08)",
                     }}
                   />
-                  <Bar dataKey="spendingPerCapita" fill="#059669" radius={[8, 8, 0, 0]} />
+                  <Bar dataKey="spendingPerCapita" fill="#0071e3" radius={[8, 8, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>

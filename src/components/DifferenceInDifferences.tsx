@@ -141,7 +141,7 @@ export default function DifferenceInDifferences() {
                   return [`${fmt(value)} ${meta.unit}`, label];
                 }}
               />
-              <Line type="monotone" dataKey="vbc" stroke="#059669" strokeWidth={3} dot={{ r: 3 }} />
+              <Line type="monotone" dataKey="vbc" stroke="#0071e3" strokeWidth={3} dot={{ r: 3 }} />
               <Line
                 type="monotone"
                 dataKey="control"

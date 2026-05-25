@@ -61,9 +61,9 @@ export default function MedicareAdvantageAdoption() {
                 <Line
                   type="monotone"
                   dataKey="share"
-                  stroke="#059669"
+                  stroke="#0071e3"
                   strokeWidth={2.5}
-                  dot={{ fill: "#059669", strokeWidth: 0, r: 4 }}
+                  dot={{ fill: "#0071e3", strokeWidth: 0, r: 4 }}
                 />
               </LineChart>
             </ResponsiveContainer>
@@ -79,7 +79,7 @@ export default function MedicareAdvantageAdoption() {
                 <XAxis type="number" domain={[0, 0.28]} tickFormatter={(v) => `${Math.round(v * 100)}%`} />
                 <YAxis type="category" dataKey="label" width={168} tick={{ fontSize: 11 }} />
                 <Tooltip formatter={(value: number) => [`${(value * 100).toFixed(0)}%`, "Emphasis"]} />
-                <Bar dataKey="weight" fill="#059669" radius={[0, 8, 8, 0]} barSize={18} />
+                <Bar dataKey="weight" fill="#0071e3" radius={[0, 8, 8, 0]} barSize={18} />
               </BarChart>
             </ResponsiveContainer>
           </div>

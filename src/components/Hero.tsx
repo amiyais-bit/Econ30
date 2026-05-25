@@ -10,7 +10,7 @@ export default function Hero() {
     >
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <div className="absolute -left-[18%] -top-[40%] h-[min(92vw,560px)] w-[min(92vw,560px)] rounded-full bg-apple-blue/30 blur-[100px] animate-pulse-slow motion-reduce:animate-none motion-reduce:opacity-40" />
-        <div className="absolute -right-[12%] top-[15%] h-[min(78vw,480px)] w-[min(78vw,480px)] rounded-full bg-[#10b981]/25 blur-[110px] animate-pulse-slow motion-reduce:animate-none motion-reduce:opacity-35 [animation-delay:1.25s]" />
+        <div className="absolute -right-[12%] top-[15%] h-[min(78vw,480px)] w-[min(78vw,480px)] rounded-full bg-[#5856d6]/25 blur-[110px] animate-pulse-slow motion-reduce:animate-none motion-reduce:opacity-35 [animation-delay:1.25s]" />
         <div className="absolute bottom-[-25%] left-[20%] h-[400px] w-[400px] rounded-full bg-apple-blue/18 blur-[90px] animate-float opacity-90 motion-reduce:animate-none motion-reduce:opacity-30" />
       </div>
 
