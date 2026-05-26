@@ -1,6 +1,7 @@
 import React from "react";
 import Reveal from "./Reveal";
 import ThesisBox from "./ThesisBox";
+import HealthcareGdpPie from "./HealthcareGdpPie";
 
 export default function Hero() {
   return (
@@ -30,8 +31,8 @@ export default function Hero() {
 
               <div className="mt-8 max-w-2xl space-y-4 text-[17px] leading-[1.5] text-ink/85 sm:text-[18px]">
                 <p>
-                  The United States spends more on healthcare than any peer nation — yet outcomes
-                  remain deeply unequal across income, race, and geography.
+                  Healthcare already accounts for roughly one-sixth of the U.S. economy — yet
+                  outcomes remain deeply unequal across income, race, and geography.
                 </p>
                 <p>
                   Value-based care (VBC) emerged as a reform response: pay providers for quality and
@@ -52,7 +53,8 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delayMs={140}>
-            <ThesisBox label="Core thesis">
+            <HealthcareGdpPie />
+            <ThesisBox label="Core thesis" className="mt-6">
               <p className="text-[16px] leading-relaxed sm:text-[17px]">
                 Value-based care may improve average healthcare outcomes, but that does{" "}
                 <span className="font-semibold text-ink">not necessarily</span> mean it reduces

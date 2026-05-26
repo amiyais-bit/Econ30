@@ -23,6 +23,14 @@ export const sources: SourceEntry[] = [
   },
   {
     category: "Health spending & reform context",
+    title: "National Health Expenditure Accounts (GDP shares, 2022)",
+    publisher: "Centers for Medicare & Medicaid Services (CMS)",
+    description:
+      "Healthcare spending as a fraction of U.S. GDP — hero pie chart (personal care, government, investment, public health).",
+    url: "https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data",
+  },
+  {
+    category: "Health spending & reform context",
     title: "National Health Expenditure Accounts",
     publisher: "Centers for Medicare & Medicaid Services (CMS)",
     description: "Official U.S. health spending totals underlying the 2024 per-capita figure.",
