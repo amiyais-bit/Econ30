@@ -1,23 +1,8 @@
-import React, { useMemo, useState } from "react";
-import {
-  CartesianGrid,
-  Line,
-  LineChart,
-  ReferenceLine,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+import React from "react";
 import Section from "./Section";
 import Card from "./Card";
 import PullQuote from "./PullQuote";
 import ThesisBox from "./ThesisBox";
-import { gapData } from "../data/gapData";
-
-type View = "absolute" | "percent";
-
-const adoptionYear = 2019;
 
 const equityFactors = [
   {
@@ -46,20 +31,7 @@ const equityFactors = [
   },
 ];
 
-function fmt(n: number) {
-  return n.toFixed(1);
-}
-
 export default function EquityGap() {
-  const [view, setView] = useState<View>("absolute");
-
-  const series = useMemo(() => {
-    if (view === "absolute") return gapData;
-    return gapData.map((d) => ({ year: d.year, gap: (d.gap / 100) * 100 }));
-  }, [view]);
-
-  const unit = view === "absolute" ? "points" : "%";
-
   return (
     <Section
       id="equity"
@@ -79,7 +51,7 @@ export default function EquityGap() {
         improved faster than advantaged ones.
       </PullQuote>
 
-      <div className="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {equityFactors.map((f) => (
           <Card key={f.title} className="p-5">
             <h4 className="text-[16px] font-semibold text-ink">{f.title}</h4>
@@ -87,54 +59,6 @@ export default function EquityGap() {
           </Card>
         ))}
       </div>
-
-      <Card className="p-5">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <h3 className="text-[21px] font-semibold text-ink">
-              Outcome gap between low- and high-income patients
-            </h3>
-            <p className="mt-1 text-[14px] text-ink-secondary">
-              Did the gap shrink after VBC adoption? Placeholder series for demonstration.
-            </p>
-          </div>
-          <div className="inline-flex rounded-full border border-black/[0.08] bg-surface/90 p-1">
-            <button
-              type="button"
-              onClick={() => setView("absolute")}
-              className={[
-                "rounded-full px-4 py-2 text-[13px] font-semibold transition",
-                view === "absolute" ? "bg-apple-blue text-white" : "text-ink hover:bg-black/[0.04]",
-              ].join(" ")}
-            >
-              Absolute gap
-            </button>
-            <button
-              type="button"
-              onClick={() => setView("percent")}
-              className={[
-                "rounded-full px-4 py-2 text-[13px] font-semibold transition",
-                view === "percent" ? "bg-apple-blue text-white" : "text-ink hover:bg-black/[0.04]",
-              ].join(" ")}
-            >
-              Percent gap
-            </button>
-          </div>
-        </div>
-
-        <div className="mt-5 h-[340px]">
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={series} margin={{ top: 8, right: 16, left: 8, bottom: 8 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(15, 23, 42, 0.12)" />
-              <XAxis dataKey="year" tick={{ fontSize: 12 }} />
-              <YAxis tick={{ fontSize: 12 }} />
-              <Tooltip formatter={(value: number) => [`${fmt(value)} ${unit}`, "Gap"]} />
-              <Line type="monotone" dataKey="gap" stroke="#0071e3" strokeWidth={3} dot={{ r: 3 }} />
-              <ReferenceLine x={adoptionYear} stroke="rgba(17, 18, 22, 0.45)" strokeDasharray="6 6" />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
-      </Card>
     </Section>
   );
 }
