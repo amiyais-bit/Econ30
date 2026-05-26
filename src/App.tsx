@@ -3,7 +3,6 @@ import Hero from "./components/Hero";
 import WhyReformNeeded from "./components/WhyReformNeeded";
 import BaselineInequality from "./components/BaselineInequality";
 import PaymentModelDiagram from "./components/PaymentModelDiagram";
-import MedicareAdvantageAdoption from "./components/MedicareAdvantageAdoption";
 import OutcomesAnalysis from "./components/OutcomesAnalysis";
 import RiskAdjustment from "./components/RiskAdjustment";
 import EquityGap from "./components/EquityGap";
@@ -14,7 +13,6 @@ const nav = [
   { id: "payment-model", label: "What is VBC?" },
   { id: "why-reform", label: "Why reform" },
   { id: "baseline", label: "Inequality" },
-  { id: "adoption", label: "MA adoption" },
   { id: "did", label: "Outcomes" },
   { id: "risk", label: "Risk adjustment" },
   { id: "equity", label: "Equity" },
@@ -58,7 +56,6 @@ export default function App() {
         <PaymentModelDiagram />
         <WhyReformNeeded />
         <BaselineInequality />
-        <MedicareAdvantageAdoption />
         <OutcomesAnalysis />
         <RiskAdjustment />
         <EquityGap />
