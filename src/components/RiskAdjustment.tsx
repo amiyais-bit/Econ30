@@ -19,6 +19,58 @@ export default function RiskAdjustment() {
       title="Risk Adjustment"
       subtitle="Risk adjustment was designed to protect equity — but coding incentives can undermine it. When better documentation raises a patient's risk score without improving their actual health, higher payments flow to plans that are better at billing, not better at caring for disadvantaged populations."
     >
+      <Card className="mb-8 p-5 sm:p-6">
+        <h3 className="text-[21px] font-semibold text-ink">Simple risk adjustment example</h3>
+
+        <div className="mt-6 grid gap-5 md:grid-cols-2">
+          <div className="rounded-[16px] border border-black/[0.08] bg-surface/50 p-4">
+            <p className="text-[13px] font-semibold uppercase tracking-wide text-ink-secondary">
+              Without risk adjustment
+            </p>
+            <ul className="mt-3 space-y-2 text-[15px] leading-relaxed text-ink-secondary">
+              <li>
+                <span className="font-semibold text-ink">Doctor A</span> treats mostly healthy
+                patients
+              </li>
+              <li>
+                <span className="font-semibold text-ink">Doctor B</span> treats older, sicker
+                patients with diabetes and heart failure
+              </li>
+            </ul>
+            <p className="mt-4 text-[15px] leading-relaxed text-ink-secondary">
+              If both doctors are judged only on raw outcomes, Doctor B may look &ldquo;worse&rdquo;
+              simply because their patients are sicker to begin with.
+            </p>
+          </div>
+
+          <div className="rounded-[16px] border border-apple-blue/20 bg-gradient-to-br from-white to-apple-blue/[0.05] p-4">
+            <p className="text-[13px] font-semibold uppercase tracking-wide text-apple-blue">
+              With risk adjustment
+            </p>
+            <ul className="mt-3 space-y-2 text-[15px] leading-relaxed text-ink-secondary">
+              <li>The healthcare system increases payment for patients expected to need more care</li>
+              <li>
+                <span className="font-semibold text-ink">Doctor B</span> receives more resources
+                because their patients are higher risk
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-5 rounded-[16px] border border-apple-blue/15 bg-white px-4 py-4">
+          <p className="text-[13px] font-semibold uppercase tracking-wide text-ink-secondary">
+            Basic logic
+          </p>
+          <p className="mt-2 text-[16px] font-semibold text-ink">
+            Sicker patient → higher risk score → higher reimbursement
+          </p>
+          <p className="mt-3 text-[15px] leading-relaxed text-ink-secondary">
+            The goal is to prevent hospitals and insurers from avoiding medically complex or
+            disadvantaged patients.
+          </p>
+        </div>
+      </Card>
+
       <div className="grid gap-6 lg:grid-cols-2 lg:items-start">
         <Card className="p-6">
           <h3 className="text-[21px] font-semibold text-ink">Distortion risk</h3>
