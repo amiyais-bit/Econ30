@@ -10,8 +10,6 @@ import EquityGap from "./components/EquityGap";
 import GeographyMap from "./components/GeographyMap";
 import Takeaways from "./components/Takeaways";
 import Sources from "./components/Sources";
-import NarrativeBridge from "./components/NarrativeBridge";
-
 const nav = [
   { id: "payment-model", label: "What is VBC?" },
   { id: "why-reform", label: "Why reform" },
@@ -58,19 +56,9 @@ export default function App() {
       <main className="relative z-10">
         <Hero />
         <PaymentModelDiagram />
-        <NarrativeBridge>
-          The U.S. tried to fix a broken payment model. But fixing incentives is not the same as fixing
-          inequality.
-        </NarrativeBridge>
         <WhyReformNeeded />
-        <NarrativeBridge>
-          Reform entered a system where patients were already starting from unequal baselines.
-        </NarrativeBridge>
         <BaselineInequality />
         <MedicareAdvantageAdoption />
-        <NarrativeBridge>
-          Better averages are encouraging — but they answer a different question than equity.
-        </NarrativeBridge>
         <OutcomesAnalysis />
         <RiskAdjustment />
         <EquityGap />

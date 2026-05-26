@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from "react";
 import Section from "./Section";
 import Card from "./Card";
-import PullQuote from "./PullQuote";
 
 const basePayment = 10000;
 
@@ -18,30 +17,23 @@ export default function RiskAdjustment() {
       id="risk"
       chapter="Part VI · The equity mechanism"
       title="Risk Adjustment"
-      subtitle="The mechanism designed to protect equity — compensating providers for caring for sicker patients so plans do not avoid high-risk populations."
+      subtitle="Risk adjustment was designed to protect equity — but coding incentives can undermine it. When better documentation raises a patient's risk score without improving their actual health, higher payments flow to plans that are better at billing, not better at caring for disadvantaged populations."
     >
-      <PullQuote className="mb-8 max-w-3xl">
-        Sicker patients should bring higher payments — but coding incentives can distort who appears
-        &ldquo;sick&rdquo; on paper.
-      </PullQuote>
-
       <div className="grid gap-6 lg:grid-cols-2 lg:items-start">
         <Card className="p-6">
-          <h3 className="text-[21px] font-semibold text-ink">How it is supposed to work</h3>
-          <div className="mt-4 grid gap-3">
-            <div className="rounded-[16px] border border-apple-blue/15 bg-gradient-to-br from-white to-surface/60 p-4">
-              <p className="font-semibold text-ink">Main flow</p>
-              <p className="mt-1 text-[14px] leading-relaxed text-ink-secondary">
-                Sicker patient → higher risk score → higher expected cost → higher reimbursement
-              </p>
-            </div>
-            <div className="rounded-[16px] border border-black/[0.08] bg-white p-4">
-              <p className="font-semibold text-ink">Distortion risk</p>
-              <p className="mt-1 text-[14px] leading-relaxed text-ink-secondary">
-                Better coding → higher documented risk → higher reimbursement — without necessarily
-                improving actual health.
-              </p>
-            </div>
+          <h3 className="text-[21px] font-semibold text-ink">Distortion risk</h3>
+          <div className="mt-4 rounded-[16px] border border-black/[0.08] bg-white p-4">
+            <p className="mt-1 text-[14px] leading-relaxed text-ink-secondary">
+              Better coding → higher documented risk → higher reimbursement — without necessarily
+              improving actual health.
+            </p>
+          </div>
+
+          <h3 className="mt-6 text-[21px] font-semibold text-ink">How it is supposed to work</h3>
+          <div className="mt-4 rounded-[16px] border border-apple-blue/15 bg-gradient-to-br from-white to-surface/60 p-4">
+            <p className="mt-1 text-[14px] leading-relaxed text-ink-secondary">
+              Sicker patient → higher risk score → higher expected cost → higher reimbursement
+            </p>
           </div>
         </Card>
 
@@ -71,8 +63,8 @@ export default function RiskAdjustment() {
             </p>
           </div>
           <p className="mt-4 text-[15px] leading-relaxed text-ink-secondary">
-            Risk adjustment is essential for fairness in capitated models — but it only protects equity
-            if scores reflect true need, not billing strategy.
+            When risk scores reflect billing strategy more than true need, the mechanism meant to
+            protect disadvantaged patients instead rewards plans for avoiding them.
           </p>
         </Card>
       </div>

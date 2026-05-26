@@ -5,10 +5,6 @@ import ThesisBox from "./ThesisBox";
 
 const takeaways = [
   {
-    title: "VBC can improve averages",
-    body: "Payment reform may reduce readmissions, hospitalizations, and spending for the typical patient.",
-  },
-  {
     title: "Equity is not automatic",
     body: "Disadvantaged groups may see smaller gains if models reward populations that are easier to manage.",
   },
@@ -27,7 +23,7 @@ export default function Takeaways() {
       subtitle="Value-based care is a response to real problems in fee-for-service — but it is not a guarantee of greater equity."
       tone="surface"
     >
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-2">
         {takeaways.map((t) => (
           <Card key={t.title} className="p-5">
             <h3 className="text-[19px] font-semibold text-ink">{t.title}</h3>
@@ -38,8 +34,9 @@ export default function Takeaways() {
 
       <ThesisBox label="Final statement" className="mt-10">
         <p className="text-[20px] font-medium leading-snug tracking-tight text-ink sm:text-[24px] sm:leading-[1.35]">
-          Payment reform alone does not create equity. Healthcare systems reduce inequality only when
-          incentives are explicitly designed to reward improvements among disadvantaged populations.
+          Payment reform improves what it measures. It does not automatically improve what it ignores.
+          Healthcare systems reduce inequality only when incentives are explicitly designed to reward
+          progress among the patients who start furthest behind — not just movement in the average.
         </p>
       </ThesisBox>
     </Section>

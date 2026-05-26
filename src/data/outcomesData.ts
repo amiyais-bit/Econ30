@@ -46,14 +46,18 @@ export const outcomeClaims: OutcomeClaim[] = [
     stat: "1,635 → 1,395 per 100,000 adults (2001–2009).",
     source: "CDC / MMWR (AHRQ HCUP Prevention Quality Indicators)",
   },
-  {
-    title: "Income gaps in preventable care persisted",
-    claim:
-      "Residents of the lowest-income ZIP-code quartiles continued to have higher preventable-hospitalization rates than the wealthiest quartiles every year; disparities did not close even as the national rate fell.",
-    stat: "MMWR: parallel declines 2001–2009; ~500,000 excess hospitalizations in 2009 if Q1 matched Q4 rate.",
-    source: "CDC / MMWR 2001–2009; CHDIR 2004–2007",
-  },
 ];
+
+export const centralFinding: OutcomeClaim = {
+  title: "Income gaps in preventable care persisted",
+  claim:
+    "Residents of the lowest-income ZIP-code quartiles continued to have higher preventable-hospitalization rates than the wealthiest quartiles every year. Disparities did not close even as the national rate fell. In 2009, roughly 500,000 excess hospitalizations would have been avoided if the lowest-income quartile matched the highest-income rate.",
+  stat: "MMWR: parallel declines 2001–2009; income gap unchanged in relative terms.",
+  source: "CDC / MMWR 2001–2009; CHDIR 2004–2007",
+};
+
+export const centralFindingCallout =
+  "This is the central empirical finding of this project: VBC lifted the mean. It did not close the gap.";
 
 export const outcomesVerdict = {
   average:

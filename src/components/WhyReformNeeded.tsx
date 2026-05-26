@@ -11,7 +11,6 @@ import {
 } from "recharts";
 import Card from "./Card";
 import Section from "./Section";
-import PullQuote from "./PullQuote";
 import {
   healthSpendingPerCapita2024,
   SPENDING_SOURCE_TITLE,
@@ -36,18 +35,6 @@ const problems = [
     body: "Fee-for-service rewards procedures and visits, not keeping people healthy before they get sick.",
   },
   {
-    title: "Rising healthcare costs",
-    body: "National health spending has climbed for decades, straining households, employers, and public budgets.",
-  },
-  {
-    title: "Fragmented care",
-    body: "Patients bounce between specialists and settings with little coordination — especially harmful for chronic illness.",
-  },
-  {
-    title: "Chronic disease burden",
-    body: "Diabetes, heart disease, and other long-term conditions drive much of U.S. spending and disability.",
-  },
-  {
     title: "Poor outcomes despite high spending",
     body: "The U.S. spends more per person than peer countries yet often trails on life expectancy and preventable harm.",
   },
@@ -59,13 +46,8 @@ export default function WhyReformNeeded() {
       id="why-reform"
       chapter="Part I · The problem"
       title="Why Reform Was Needed"
-      subtitle="Before value-based care could be sold as a solution, policymakers had to confront a fee-for-service system that often paid for activity — not results."
+      subtitle="Fee-for-service did not fail because doctors stopped caring. It failed because the payment model rewarded volume over health — and the patients harmed most by that misalignment were already the most vulnerable."
     >
-      <PullQuote className="mb-10 max-w-3xl">
-        Fee-for-service did not fail because doctors stopped caring. It failed because the payment
-        model rewarded volume.
-      </PullQuote>
-
       <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
         <div className="space-y-4">
           {problems.map((item) => (

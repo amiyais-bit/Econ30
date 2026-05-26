@@ -124,7 +124,7 @@ export default function GeographyMap() {
       id="geography"
       chapter="Part VIII · Uneven diffusion"
       title="Where VBC Expands — and Where It Doesn't"
-      subtitle="Hospital Value-Based Purchasing scores and family poverty rates vary widely by state — reform performance does not always align with where need is greatest."
+      subtitle="If VBC performance were evenly distributed, high-need states would score at or above average. The map shows the opposite."
     >
       <Card className="p-5">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">

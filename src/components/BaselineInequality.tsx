@@ -10,7 +10,6 @@ import {
 } from "recharts";
 import Card from "./Card";
 import Section from "./Section";
-import PullQuote from "./PullQuote";
 import {
   baselineData,
   baselineOutcomeMeta,
@@ -21,20 +20,8 @@ const outcomeKeys = Object.keys(baselineOutcomeMeta) as BaselineOutcomeKey[];
 
 const barriers = [
   {
-    title: "Transportation barriers",
-    body: "Missed appointments and delayed care when getting to a clinic or hospital is costly or unreliable.",
-  },
-  {
-    title: "Food insecurity",
-    body: "Nutrition shapes chronic disease risk — yet diet is rarely addressed inside a payment model focused on visits.",
-  },
-  {
     title: "Provider shortages",
     body: "Rural and low-income communities often lack enough primary care, mental health, and specialty access.",
-  },
-  {
-    title: "Insurance instability",
-    body: "Coverage gaps and churn interrupt continuity of care, especially for low-wage workers.",
   },
 ];
 
@@ -69,15 +56,11 @@ export default function BaselineInequality() {
       id="baseline"
       chapter="Part II · The starting line"
       title="Baseline Inequality"
-      subtitle="Before VBC can be evaluated, we must see the inequality that already exists — shaped by income, place, and social conditions long before a patient reaches the exam room."
+      subtitle="Patients do not enter the healthcare system on equal footing — and value-based care inherits whatever inequality already exists at the starting line."
     >
-      <PullQuote className="mb-8 max-w-3xl">
-        Patients do not enter the healthcare system on equal footing.
-      </PullQuote>
-
       <div className="mb-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {barriers.map((b) => (
-          <Card key={b.title} className="p-4">
+          <Card key={b.title} className="p-4 sm:col-span-2 lg:col-span-1">
             <h4 className="text-[15px] font-semibold text-ink">{b.title}</h4>
             <p className="mt-2 text-[13px] leading-relaxed text-ink-secondary">{b.body}</p>
           </Card>
@@ -137,31 +120,26 @@ export default function BaselineInequality() {
           <p className="mt-3 text-[12px] leading-relaxed text-ink-secondary">{footnote}</p>
         </Card>
 
-        <div className="space-y-4">
-          <Card className="border-apple-blue/15 p-5">
-            <h4 className="text-[19px] font-semibold text-ink">Why this matters for VBC</h4>
-            <p className="mt-2 text-[15px] leading-relaxed text-ink-secondary">
-              Value-based care starts from unequal baselines. If disadvantaged groups begin sicker and
-              face more barriers, improving the population average is not the same as closing gaps.
-            </p>
-          </Card>
-
-          <Card className="p-5">
-            <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
-              Income quartile gap (published data)
-            </p>
-            <p className="mt-2 text-[15px] text-ink-secondary">
-              {outcome === "lifeExpectancyAt40" ? "Lowest income quartile" : "Q1 (lowest income)"}:{" "}
-              <span className="font-bold text-ink">{fmt(lowest, decimals)}</span> {meta.unit}
-              <br />
-              {outcome === "lifeExpectancyAt40" ? "Highest income quartile" : "Q4 (highest income)"}:{" "}
-              <span className="font-bold text-ink">{fmt(highest, decimals)}</span> {meta.unit}
-              <br />
-              Gap: <span className="font-bold text-ink">{fmt(gap, decimals)}</span> {meta.unit}
-            </p>
-          </Card>
-        </div>
+        <Card className="p-5">
+          <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
+            Income quartile gap (published data)
+          </p>
+          <p className="mt-2 text-[15px] text-ink-secondary">
+            {outcome === "lifeExpectancyAt40" ? "Lowest income quartile" : "Q1 (lowest income)"}:{" "}
+            <span className="font-bold text-ink">{fmt(lowest, decimals)}</span> {meta.unit}
+            <br />
+            {outcome === "lifeExpectancyAt40" ? "Highest income quartile" : "Q4 (highest income)"}:{" "}
+            <span className="font-bold text-ink">{fmt(highest, decimals)}</span> {meta.unit}
+            <br />
+            Gap: <span className="font-bold text-ink">{fmt(gap, decimals)}</span> {meta.unit}
+          </p>
+        </Card>
       </div>
+
+      <p className="mt-10 max-w-3xl text-[17px] leading-relaxed text-ink/85 sm:text-[18px]">
+        If disadvantaged patients begin sicker and face more structural barriers, improving the
+        population average is not the same as closing gaps. So what does the evidence actually show?
+      </p>
     </Section>
   );
 }
