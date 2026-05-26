@@ -7,13 +7,8 @@ import {
   centralFindingCallout,
   getOutcomeClaim,
   outcomesDisplayOrder,
-  outcomesVerdict,
+  outcomesVerdictRows,
 } from "../data/outcomesData";
-
-const verdictRows = [
-  { question: "Did average outcomes improve?", answer: outcomesVerdict.average },
-  { question: "Did disparities shrink?", answer: outcomesVerdict.equity },
-];
 
 function ClaimCard({ item }: { item: typeof centralFinding }) {
   return (
@@ -43,7 +38,7 @@ export default function OutcomesAnalysis() {
             </tr>
           </thead>
           <tbody>
-            {verdictRows.map((row) => (
+            {outcomesVerdictRows.map((row) => (
               <tr key={row.question} className="border-b border-black/[0.06] last:border-0">
                 <td className="px-4 py-3 align-top text-ink-secondary">{row.question}</td>
                 <td className="px-4 py-3 align-top font-medium leading-relaxed text-ink">

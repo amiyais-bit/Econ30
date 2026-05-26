@@ -59,12 +59,23 @@ export const centralFinding: OutcomeClaim = {
 export const centralFindingCallout =
   "This is the central empirical finding of this project: VBC lifted the mean. It did not close the gap.";
 
-export const outcomesVerdict = {
-  average:
-    "Mixed. Medicare readmissions and national preventable admissions improved on average after payment and quality initiatives, but Medicare spending per beneficiary still grew and private-payer readmissions barely moved.",
-  equity:
-    "Weak. Published data through 2009 show persistent income disparities in preventable hospitalizations; Medicare–private readmission gaps also remained large. Closing equity gaps requires more than average outcome gains.",
-};
+export const outcomesVerdictRows = [
+  {
+    question: "Did average clinical outcomes improve?",
+    answer:
+      "Somewhat. Medicare readmissions and national preventable hospitalizations declined after payment and quality initiatives, though improvements were uneven across payers and programs.",
+  },
+  {
+    question: "Did healthcare spending fall?",
+    answer:
+      "No, not substantially. Medicare spending growth slowed in the early 2010s, but per-beneficiary spending still increased overall.",
+  },
+  {
+    question: "Did disparities shrink?",
+    answer:
+      "Weak evidence. Income gaps in preventable hospitalizations persisted even as national averages improved.",
+  },
+];
 
 export type OutcomesBlock =
   | { type: "claim"; title: string }
