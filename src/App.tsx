@@ -13,9 +13,9 @@ import Sources from "./components/Sources";
 import NarrativeBridge from "./components/NarrativeBridge";
 
 const nav = [
+  { id: "payment-model", label: "What is VBC?" },
   { id: "why-reform", label: "Why reform" },
   { id: "baseline", label: "Inequality" },
-  { id: "payment-model", label: "What is VBC?" },
   { id: "adoption", label: "MA adoption" },
   { id: "did", label: "Outcomes" },
   { id: "risk", label: "Risk adjustment" },
@@ -57,6 +57,7 @@ export default function App() {
 
       <main className="relative z-10">
         <Hero />
+        <PaymentModelDiagram />
         <NarrativeBridge>
           The U.S. tried to fix a broken payment model. But fixing incentives is not the same as fixing
           inequality.
@@ -66,7 +67,6 @@ export default function App() {
           Reform entered a system where patients were already starting from unequal baselines.
         </NarrativeBridge>
         <BaselineInequality />
-        <PaymentModelDiagram />
         <MedicareAdvantageAdoption />
         <NarrativeBridge>
           Better averages are encouraging — but they answer a different question than equity.
