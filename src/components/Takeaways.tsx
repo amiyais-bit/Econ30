@@ -5,8 +5,8 @@ import ThesisBox from "./ThesisBox";
 
 const takeaways = [
   {
-    title: "Equity is not automatic",
-    body: "Disadvantaged groups may see smaller gains if models reward populations that are easier to manage.",
+    title: "What equity-designed VBC would require",
+    body: "Explicit penalties for persistent disparity gaps, quality metrics stratified by income quartile, and reimbursement for social needs — not just clinical services.",
   },
   {
     title: "Design determines fairness",

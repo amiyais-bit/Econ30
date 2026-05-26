@@ -5,7 +5,8 @@ import ThesisBox from "./ThesisBox";
 import {
   centralFinding,
   centralFindingCallout,
-  outcomeClaims,
+  getOutcomeClaim,
+  outcomesDisplayOrder,
   outcomesVerdict,
 } from "../data/outcomesData";
 
@@ -13,6 +14,17 @@ const verdictRows = [
   { question: "Did average outcomes improve?", answer: outcomesVerdict.average },
   { question: "Did disparities shrink?", answer: outcomesVerdict.equity },
 ];
+
+function ClaimCard({ item }: { item: typeof centralFinding }) {
+  return (
+    <Card className="flex flex-col p-5">
+      <h3 className="text-[17px] font-semibold text-ink">{item.title}</h3>
+      <p className="mt-2 flex-1 text-[15px] leading-relaxed text-ink-secondary">{item.claim}</p>
+      <p className="mt-4 text-[14px] font-semibold text-apple-blue">{item.stat}</p>
+      <p className="mt-2 text-[12px] text-ink-secondary">{item.source}</p>
+    </Card>
+  );
+}
 
 export default function OutcomesAnalysis() {
   return (
@@ -44,32 +56,26 @@ export default function OutcomesAnalysis() {
       </Card>
 
       <div className="grid gap-5 md:grid-cols-2">
-        {outcomeClaims.map((item) => (
-          <Card key={item.title} className="flex flex-col p-5">
-            <h3 className="text-[17px] font-semibold text-ink">{item.title}</h3>
-            <p className="mt-2 flex-1 text-[15px] leading-relaxed text-ink-secondary">
-              {item.claim}
-            </p>
-            <p className="mt-4 text-[14px] font-semibold text-apple-blue">{item.stat}</p>
-            <p className="mt-2 text-[12px] text-ink-secondary">{item.source}</p>
-          </Card>
-        ))}
+        {outcomesDisplayOrder.map((block) => {
+          if (block.type === "callout") {
+            return (
+              <ThesisBox key="callout" label="Central finding" className="md:col-span-2">
+                <p className="text-[17px] font-semibold leading-relaxed text-ink sm:text-[18px]">
+                  {centralFindingCallout}
+                </p>
+              </ThesisBox>
+            );
+          }
+          if (block.type === "central-finding") {
+            return (
+              <div key="central-finding" className="md:col-span-2">
+                <ClaimCard item={centralFinding} />
+              </div>
+            );
+          }
+          return <ClaimCard key={block.title} item={getOutcomeClaim(block.title)} />;
+        })}
       </div>
-
-      <Card className="mt-5 flex flex-col p-5">
-        <h3 className="text-[17px] font-semibold text-ink">{centralFinding.title}</h3>
-        <p className="mt-2 flex-1 text-[15px] leading-relaxed text-ink-secondary">
-          {centralFinding.claim}
-        </p>
-        <p className="mt-4 text-[14px] font-semibold text-apple-blue">{centralFinding.stat}</p>
-        <p className="mt-2 text-[12px] text-ink-secondary">{centralFinding.source}</p>
-      </Card>
-
-      <ThesisBox label="Central finding" className="mt-6">
-        <p className="text-[17px] font-semibold leading-relaxed text-ink sm:text-[18px]">
-          {centralFindingCallout}
-        </p>
-      </ThesisBox>
     </Section>
   );
 }

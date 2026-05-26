@@ -65,3 +65,29 @@ export const outcomesVerdict = {
   equity:
     "Weak. Published data through 2009 show persistent income disparities in preventable hospitalizations; Medicare–private readmission gaps also remained large. Closing equity gaps requires more than average outcome gains.",
 };
+
+export type OutcomesBlock =
+  | { type: "claim"; title: string }
+  | { type: "central-finding" }
+  | { type: "callout" };
+
+/** Display order for Part V finding blocks (text inside blocks unchanged). */
+export const outcomesDisplayOrder: OutcomesBlock[] = [
+  { type: "claim", title: "Medicare readmissions fell after HRRP" },
+  { type: "claim", title: "Preventable hospitalizations declined nationally" },
+  { type: "central-finding" },
+  { type: "callout" },
+  { type: "claim", title: "Private insurance readmissions stayed much lower" },
+  { type: "claim", title: "Medicare spending per beneficiary still rose" },
+  { type: "claim", title: "Payment rules explain much of the spending slowdown" },
+];
+
+const claimsByTitle = new Map<string, OutcomeClaim>(
+  [...outcomeClaims, centralFinding].map((c) => [c.title, c])
+);
+
+export function getOutcomeClaim(title: string): OutcomeClaim {
+  const claim = claimsByTitle.get(title);
+  if (!claim) throw new Error(`Unknown outcome claim: ${title}`);
+  return claim;
+}
