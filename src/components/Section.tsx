@@ -9,7 +9,7 @@ export default function Section(props: {
   tone?: "default" | "surface" | "emphasis";
   chapter?: string;
   prominent?: boolean;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }) {
   const bg =
     props.tone === "surface"
@@ -33,7 +33,12 @@ export default function Section(props: {
       />
       <div className="relative mx-auto w-full max-w-content px-5 sm:px-6">
         <Reveal>
-          <header className={clsx("mb-10", props.prominent ? "sm:mb-14" : "sm:mb-12")}>
+          <header
+            className={clsx(
+              props.children ? "mb-10" : "mb-0",
+              props.prominent && props.children ? "sm:mb-14" : props.children ? "sm:mb-12" : ""
+            )}
+          >
             {props.chapter ? (
               <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-apple-blue/80">
                 {props.chapter}
@@ -65,7 +70,7 @@ export default function Section(props: {
             ) : null}
           </header>
         </Reveal>
-        <Reveal delayMs={100}>{props.children}</Reveal>
+        {props.children ? <Reveal delayMs={100}>{props.children}</Reveal> : null}
       </div>
     </section>
   );
