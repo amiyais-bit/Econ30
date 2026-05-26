@@ -18,21 +18,35 @@ import {
 
 const outcomeKeys = Object.keys(baselineOutcomeMeta) as BaselineOutcomeKey[];
 
-const barriers = [
-  {
-    title: "Provider shortages",
-    body: "Rural and low-income communities often lack enough primary care, mental health, and specialty access.",
-  },
-];
-
 function fmt(n: number, decimals = 1) {
   return n.toFixed(decimals);
+}
+
+function GapStat(props: { label: string; value: string; unit: string; accent?: boolean }) {
+  return (
+    <div
+      className={[
+        "rounded-[14px] border px-4 py-3",
+        props.accent
+          ? "border-apple-blue/25 bg-apple-blue/[0.06]"
+          : "border-black/[0.06] bg-surface/60",
+      ].join(" ")}
+    >
+      <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
+        {props.label}
+      </p>
+      <p className="mt-1 text-[22px] font-semibold tabular-nums tracking-tight text-ink">
+        {props.value}
+        <span className="ml-1 text-[14px] font-medium text-ink-secondary">{props.unit}</span>
+      </p>
+    </div>
+  );
 }
 
 export default function BaselineInequality() {
   const [outcome, setOutcome] = useState<BaselineOutcomeKey>("readmissionRate");
   const meta = baselineOutcomeMeta[outcome];
-  const decimals = outcome === "lifeExpectancyAt40" ? 1 : 1;
+  const decimals = 1;
 
   const lowest = baselineData[0]?.[outcome] ?? 0;
   const highest = baselineData[baselineData.length - 1]?.[outcome] ?? 0;
@@ -51,6 +65,11 @@ export default function BaselineInequality() {
     return "Average race-adjusted life expectancy at age 40 across income percentiles within each national quartile (men and women combined).";
   }, [outcome]);
 
+  const q1Label =
+    outcome === "lifeExpectancyAt40" ? "Lowest income quartile" : "Q1 · lowest income";
+  const q4Label =
+    outcome === "lifeExpectancyAt40" ? "Highest income quartile" : "Q4 · highest income";
+
   return (
     <Section
       id="baseline"
@@ -58,51 +77,50 @@ export default function BaselineInequality() {
       title="Baseline Inequality"
       subtitle="Patients do not enter the healthcare system on equal footing — and value-based care inherits whatever inequality already exists at the starting line."
     >
-      <div className="mb-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {barriers.map((b) => (
-          <Card key={b.title} className="p-4 sm:col-span-2 lg:col-span-1">
-            <h4 className="text-[15px] font-semibold text-ink">{b.title}</h4>
-            <p className="mt-2 text-[13px] leading-relaxed text-ink-secondary">{b.body}</p>
-          </Card>
-        ))}
-      </div>
+      <Card className="overflow-hidden p-5 sm:p-6">
+        <div className="rounded-[14px] border border-apple-blue/20 bg-gradient-to-br from-white to-apple-blue/[0.05] px-4 py-3.5 sm:px-5">
+          <h4 className="text-[15px] font-semibold text-ink">Provider shortages</h4>
+          <p className="mt-1.5 text-[14px] leading-relaxed text-ink-secondary">
+            Rural and low-income communities often lack enough primary care, mental health, and
+            specialty access.
+          </p>
+        </div>
 
-      <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr] lg:items-start">
-        <Card className="p-5">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
-                Outcome gaps by income quartile
-              </p>
-              <h3 className="mt-2 text-[21px] font-semibold text-ink">
-                Inequality before reform begins
-              </h3>
-              <p className="mt-1 text-[13px] text-ink-secondary">
-                {meta.source} ({meta.year})
-              </p>
-            </div>
-            <label className="text-[14px] font-semibold text-ink">
-              Select outcome
-              <select
-                className="mt-2 w-full rounded-[12px] border border-black/[0.08] bg-white px-3 py-2 text-[14px] shadow-apple"
-                value={outcome}
-                onChange={(e) => setOutcome(e.target.value as BaselineOutcomeKey)}
-              >
-                {outcomeKeys.map((key) => (
-                  <option key={key} value={key}>
-                    {baselineOutcomeMeta[key].label}
-                  </option>
-                ))}
-              </select>
-            </label>
+        <div className="mt-6 flex flex-col gap-4 border-b border-black/[0.06] pb-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
+              Outcome gaps by income quartile
+            </p>
+            <h3 className="mt-2 text-[21px] font-semibold text-ink">
+              Inequality before reform begins
+            </h3>
+            <p className="mt-1 text-[13px] text-ink-secondary">
+              {meta.source} ({meta.year})
+            </p>
           </div>
+          <label className="w-full shrink-0 text-[14px] font-semibold text-ink sm:w-[min(100%,280px)]">
+            Select outcome
+            <select
+              className="mt-2 w-full rounded-[12px] border border-black/[0.08] bg-white px-3 py-2 text-[14px] shadow-apple"
+              value={outcome}
+              onChange={(e) => setOutcome(e.target.value as BaselineOutcomeKey)}
+            >
+              {outcomeKeys.map((key) => (
+                <option key={key} value={key}>
+                  {baselineOutcomeMeta[key].label}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
 
-          <div className="mt-5 h-[320px]">
+        <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_240px] lg:items-stretch">
+          <div className="min-h-[300px] h-[min(42vh,360px)]">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={baselineData} margin={{ top: 8, right: 16, left: 8, bottom: 8 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(15, 23, 42, 0.12)" />
-                <XAxis dataKey="group" tick={{ fontSize: 12 }} interval={0} angle={-10} height={64} />
-                <YAxis tick={{ fontSize: 12 }} />
+                <XAxis dataKey="group" tick={{ fontSize: 11 }} interval={0} angle={-12} height={72} />
+                <YAxis tick={{ fontSize: 12 }} width={40} />
                 <Tooltip
                   formatter={(value: number) => [`${fmt(value, decimals)} ${meta.unit}`, meta.label]}
                   labelStyle={{ color: "#111216", fontWeight: 700 }}
@@ -112,31 +130,22 @@ export default function BaselineInequality() {
                     boxShadow: "0 12px 26px rgba(17, 18, 22, 0.08)",
                   }}
                 />
-                <Bar dataKey={outcome} fill="#0071e3" radius={[10, 10, 0, 0]} />
+                <Bar dataKey={outcome} fill="#0071e3" radius={[10, 10, 0, 0]} maxBarSize={56} />
               </BarChart>
             </ResponsiveContainer>
           </div>
 
-          <p className="mt-3 text-[12px] leading-relaxed text-ink-secondary">{footnote}</p>
-        </Card>
+          <div className="flex flex-col justify-center gap-3">
+            <GapStat label={q1Label} value={fmt(lowest, decimals)} unit={meta.unit} />
+            <GapStat label={q4Label} value={fmt(highest, decimals)} unit={meta.unit} />
+            <GapStat label="Gap (Q1 vs Q4)" value={fmt(gap, decimals)} unit={meta.unit} accent />
+          </div>
+        </div>
 
-        <Card className="p-5">
-          <p className="text-[11px] font-semibold uppercase tracking-wide text-ink-secondary">
-            Income quartile gap (published data)
-          </p>
-          <p className="mt-2 text-[15px] text-ink-secondary">
-            {outcome === "lifeExpectancyAt40" ? "Lowest income quartile" : "Q1 (lowest income)"}:{" "}
-            <span className="font-bold text-ink">{fmt(lowest, decimals)}</span> {meta.unit}
-            <br />
-            {outcome === "lifeExpectancyAt40" ? "Highest income quartile" : "Q4 (highest income)"}:{" "}
-            <span className="font-bold text-ink">{fmt(highest, decimals)}</span> {meta.unit}
-            <br />
-            Gap: <span className="font-bold text-ink">{fmt(gap, decimals)}</span> {meta.unit}
-          </p>
-        </Card>
-      </div>
+        <p className="mt-4 text-[12px] leading-relaxed text-ink-secondary">{footnote}</p>
+      </Card>
 
-      <p className="mt-10 max-w-3xl text-[17px] leading-relaxed text-ink/85 sm:text-[18px]">
+      <p className="mt-8 max-w-3xl text-[17px] leading-relaxed text-ink/85 sm:text-[18px]">
         If disadvantaged patients begin sicker and face more structural barriers, improving the
         population average is not the same as closing gaps. So what does the evidence actually show?
       </p>
