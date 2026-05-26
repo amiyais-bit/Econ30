@@ -61,6 +61,38 @@ export const sources: SourceEntry[] = [
   },
   {
     category: "Outcomes & inequality",
+    title: "Characteristics of 30-Day All-Cause Hospital Readmissions, 2010–2016 (Statistical Brief #248)",
+    publisher: "AHRQ / HCUP",
+    description:
+      "Medicare and private-insurance 30-day readmission rates per 100 index admissions (Outcomes Analysis chart, 2010–2016).",
+    url: "https://hcup-us.ahrq.gov/reports/statbriefs/sb248-Hospital-Readmissions-2010-2016.jsp",
+  },
+  {
+    category: "Outcomes & inequality",
+    title: "Characteristics of 30-Day All-Cause Hospital Readmissions, 2016–2020 (Statistical Brief #304)",
+    publisher: "AHRQ / HCUP",
+    description:
+      "Medicare and private readmission rates 2017–2020 (Outcomes Analysis chart; 2016–2019 mean 17.0 Medicare, 8.5 private).",
+    url: "https://hcup-us.ahrq.gov/reports/statbriefs/sb304-readmissions-2016-2020.jsp",
+  },
+  {
+    category: "Outcomes & inequality",
+    title: "Trends in and Factors Contributing to the Slowdown in Medicare Spending Growth, 2007–2018",
+    publisher: "JAMA Network Open (Buntin et al.)",
+    description:
+      "Medicare FFS Parts A & B per-beneficiary spending and payment-policy-adjusted counterfactual (Outcomes Analysis).",
+    url: "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2790022",
+  },
+  {
+    category: "Outcomes & inequality",
+    title: "Potentially Preventable Hospitalizations — United States, 2001–2009",
+    publisher: "CDC / MMWR (AHRQ HCUP)",
+    description:
+      "National PQI composite trend and income-quartile disparities (Outcomes Analysis preventable hospitalizations).",
+    url: "https://www.cdc.gov/mmwr/preview/mmwrhtml/su6203a23.htm",
+  },
+  {
+    category: "Outcomes & inequality",
     title: "Potentially Preventable Hospitalizations for Acute and Chronic Conditions, 2008 (Statistical Brief #99)",
     publisher: "AHRQ / HCUP",
     description:
