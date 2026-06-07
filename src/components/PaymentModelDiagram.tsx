@@ -18,19 +18,11 @@ const keyTerms = [
 const comparisonRows = [
   {
     model: "Fee-for-service",
-    payoff: (
-      <>
-        More <ConceptHint term="Volume">volume</ConceptHint> = more pay
-      </>
-    ),
+    payoff: "More volume = more pay",
   },
   {
     model: "Value-based care",
-    payoff: (
-      <>
-        Better <ConceptHint term="Quality / outcomes">outcomes</ConceptHint> = higher pay
-      </>
-    ),
+    payoff: "Better outcomes = higher pay",
   },
 ];
 
@@ -44,34 +36,6 @@ const examples = [
     body: "A physician is paid more when a diabetic patient's health improves and costly hospitalizations are avoided.",
   },
 ];
-
-function ConceptHint(props: { term: string; children: React.ReactNode }) {
-  const definition = keyTerms.find(
-    (t) => t.label.toLowerCase() === props.term.toLowerCase()
-  )?.definition;
-
-  return (
-    <span className="group relative inline">
-      <abbr
-        title={definition}
-        className="cursor-help border-b border-dotted border-apple-blue/45 font-medium text-ink no-underline"
-      >
-        {props.children}
-      </abbr>
-      {definition ? (
-        <span
-          role="tooltip"
-          className="pointer-events-none absolute bottom-[calc(100%+6px)] left-1/2 z-30 hidden w-[min(260px,calc(100vw-3rem))] -translate-x-1/2 rounded-[12px] border border-black/[0.08] bg-white px-3 py-2.5 text-left text-[12px] font-normal leading-relaxed text-ink-secondary shadow-apple-md group-hover:block group-focus-within:block"
-        >
-          <span className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-apple-blue">
-            {props.term}
-          </span>
-          {definition}
-        </span>
-      ) : null}
-    </span>
-  );
-}
 
 export default function PaymentModelDiagram() {
   return (
