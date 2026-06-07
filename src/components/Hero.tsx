@@ -33,27 +33,6 @@ export default function Hero() {
               <h1 className="dramatic-heading mt-5 text-[42px] font-bold leading-[1.04] sm:text-[52px] lg:text-[62px]">
                 Value-Based Care Promises Better Outcomes — But Better for Whom?
               </h1>
-
-              <div className="mt-8 max-w-2xl space-y-4 text-[17px] leading-[1.5] text-ink/85 sm:text-[18px]">
-                <p>
-                  Healthcare already accounts for roughly one-sixth of the U.S. economy — yet
-                  outcomes remain deeply unequal across income, race, and geography.
-                </p>
-                <p>
-                  Value-based care (VBC) emerged as a reform response: pay providers for quality and
-                  outcomes, not just volume. The promise is better health at lower cost.
-                </p>
-                <p>
-                  This project asks a harder question:{" "}
-                  <span className="font-semibold text-ink">
-                    does VBC reduce healthcare inequality, or mainly improve average outcomes?
-                  </span>
-                </p>
-              </div>
-
-              <p className="mt-8 text-[13px] font-medium uppercase tracking-[0.12em] text-ink-secondary">
-                Scroll to follow the argument →
-              </p>
             </div>
           </Reveal>
 

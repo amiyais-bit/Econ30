@@ -1,5 +1,6 @@
 import React from "react";
 import Hero from "./components/Hero";
+import IntroSection from "./components/IntroSection";
 import WhyReformNeeded from "./components/WhyReformNeeded";
 import BaselineInequality from "./components/BaselineInequality";
 import PaymentModelDiagram from "./components/PaymentModelDiagram";
@@ -58,6 +59,7 @@ export default function App() {
 
       <main className="relative z-10">
         <Hero />
+        <IntroSection />
         <PaymentModelDiagram />
         <WhyReformNeeded />
         <BaselineInequality />
