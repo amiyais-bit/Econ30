@@ -9,12 +9,12 @@ export default function ThesisBox(props: {
   return (
     <div
       className={clsx(
-        "rounded-[18px] border border-apple-blue/25 bg-gradient-to-br from-white via-white to-apple-blue/[0.06] p-5 shadow-glow-sm sm:p-6",
+        "rounded-[18px] border border-apple-blue/30 bg-gradient-to-br from-white via-white to-accent/[0.08] p-5 shadow-glow-sm sm:p-6",
         props.className
       )}
     >
       {props.label ? (
-        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-apple-blue">
+        <p className="font-display text-[11px] font-bold uppercase tracking-[0.16em] text-apple-blue">
           {props.label}
         </p>
       ) : null}

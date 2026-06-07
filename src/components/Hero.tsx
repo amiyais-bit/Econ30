@@ -24,13 +24,13 @@ export default function Hero() {
         <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-start lg:gap-16">
           <Reveal>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-apple-blue">
+              <p className="font-display text-xs font-bold uppercase tracking-[0.16em] text-apple-blue">
                 ECON 30 · Interactive policy essay
               </p>
               <p className="mt-2 text-[15px] font-medium tracking-tight text-ink sm:text-[16px]">
                 By <span className="font-semibold text-ink">Amiya Stroumza</span>
               </p>
-              <h1 className="dramatic-heading mt-5 text-[42px] font-semibold leading-[1.04] tracking-tight sm:text-[52px] lg:text-[62px]">
+              <h1 className="dramatic-heading mt-5 text-[42px] font-bold leading-[1.04] sm:text-[52px] lg:text-[62px]">
                 Value-Based Care Promises Better Outcomes — But Better for Whom?
               </h1>
 

@@ -24,12 +24,17 @@ const nav = [
 export default function App() {
   return (
     <div className="relative min-h-screen bg-paper">
-      <div className="ambient-page" aria-hidden />
+      <div className="ambient-page" aria-hidden>
+        <div className="ambient-orb ambient-orb-1" />
+        <div className="ambient-orb ambient-orb-2" />
+        <div className="ambient-orb ambient-orb-3" />
+      </div>
       <div className="noise-overlay" aria-hidden />
-      <header className="sticky top-0 z-20 border-b border-black/[0.08] bg-white/[0.65] shadow-apple-md backdrop-blur-2xl backdrop-saturate-[180%] supports-[backdrop-filter]:bg-white/55">
+      <header className="sticky top-0 z-20 border-b border-black/[0.06] bg-white/70 shadow-apple-md backdrop-blur-2xl backdrop-saturate-[180%] supports-[backdrop-filter]:bg-white/60">
+        <div className="header-glow absolute inset-x-0 bottom-0 h-px opacity-60" aria-hidden />
         <div className="mx-auto flex h-[52px] w-full max-w-content items-center justify-between gap-4 px-5 sm:px-6">
           <div className="min-w-0">
-            <p className="truncate text-[14px] font-semibold tracking-tight text-ink">
+            <p className="truncate font-display text-[14px] font-bold tracking-tight text-ink">
               Value-based care & inequality
             </p>
             <p className="truncate text-[11px] text-ink-secondary">
@@ -42,7 +47,7 @@ export default function App() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="relative shrink-0 rounded-full px-2.5 py-1.5 text-[11px] font-normal text-ink transition-all duration-300 after:absolute after:bottom-0.5 after:left-1/2 after:h-[2px] after:w-0 after:-translate-x-1/2 after:rounded-full after:bg-apple-blue after:transition-all after:duration-300 hover:text-apple-blue hover:after:w-[65%] lg:px-3 lg:text-[12px]"
+                className="relative shrink-0 rounded-full px-2.5 py-1.5 text-[11px] font-medium text-ink transition-all duration-300 after:absolute after:bottom-0.5 after:left-1/2 after:h-[2px] after:w-0 after:-translate-x-1/2 after:rounded-full after:bg-gradient-to-r after:from-apple-blue after:to-accent after:transition-all after:duration-300 hover:text-apple-blue hover:after:w-[65%] lg:px-3 lg:text-[12px]"
               >
                 {item.label}
               </a>

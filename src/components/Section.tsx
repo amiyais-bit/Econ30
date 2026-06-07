@@ -13,10 +13,10 @@ export default function Section(props: {
 }) {
   const bg =
     props.tone === "surface"
-      ? "bg-surface/90"
+      ? "bg-gradient-to-b from-surface/95 via-surface/80 to-paper/90"
       : props.tone === "emphasis"
-        ? "bg-gradient-to-b from-apple-blue/[0.07] via-surface/95 to-paper/90"
-        : "bg-paper/80";
+        ? "bg-gradient-to-br from-apple-blue/[0.1] via-accent/[0.05] to-paper/95"
+        : "bg-paper/75";
 
   return (
     <section
@@ -28,7 +28,7 @@ export default function Section(props: {
       )}
     >
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-apple-blue/35 to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent"
         aria-hidden
       />
       <div className="relative mx-auto w-full max-w-content px-5 sm:px-6">
@@ -40,11 +40,11 @@ export default function Section(props: {
             )}
           >
             {props.chapter ? (
-              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-apple-blue/80">
+              <p className="font-display text-[11px] font-bold uppercase tracking-[0.18em] text-apple-blue">
                 {props.chapter}
               </p>
             ) : (
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-apple-blue/90">
+              <p className="font-display text-xs font-bold uppercase tracking-[0.14em] text-apple-blue">
                 ECON 30 capstone
               </p>
             )}

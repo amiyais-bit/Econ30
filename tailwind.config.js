@@ -4,23 +4,18 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: [
-          "-apple-system",
-          "BlinkMacSystemFont",
-          '"SF Pro Text"',
-          '"SF Pro Display"',
-          "Segoe UI",
-          "system-ui",
-          "sans-serif",
-        ],
+        sans: ['"DM Sans"', "system-ui", "sans-serif"],
+        display: ['"Syne"', "system-ui", "sans-serif"],
       },
       colors: {
-        paper: "#fbfbfd",
-        surface: "#f5f5f7",
-        ink: "#1d1d1f",
-        "ink-secondary": "#86868b",
-        "apple-blue": "#248a3d",
-        "apple-blue-hover": "#1e7334",
+        paper: "#f6faf8",
+        surface: "#e8f2ec",
+        ink: "#0c1210",
+        "ink-secondary": "#52635a",
+        "apple-blue": "#16a34a",
+        "apple-blue-hover": "#15803d",
+        accent: "#0891b2",
+        "accent-warm": "#2dd4bf",
       },
       boxShadow: {
         apple:
@@ -28,9 +23,9 @@ export default {
         "apple-md": "0 4px 24px rgba(0, 0, 0, 0.07)",
         "apple-lg": "0 12px 40px rgba(0, 0, 0, 0.08)",
         glow:
-          "0 0 0 1px rgba(36, 138, 61, 0.12), 0 24px 48px -12px rgba(36, 138, 61, 0.35), 0 12px 24px -8px rgba(0, 0, 0, 0.12)",
+          "0 0 0 1px rgba(22, 163, 74, 0.15), 0 24px 48px -12px rgba(22, 163, 74, 0.35), 0 8px 32px -8px rgba(8, 145, 178, 0.2)",
         "glow-sm":
-          "0 0 20px -4px rgba(36, 138, 61, 0.45), 0 8px 24px -6px rgba(0, 0, 0, 0.15)",
+          "0 0 24px -4px rgba(22, 163, 74, 0.5), 0 8px 24px -6px rgba(8, 145, 178, 0.15)",
       },
       maxWidth: {
         content: "1068px",
@@ -57,6 +52,18 @@ export default {
           "0%, 100%": { opacity: "0.45" },
           "50%": { opacity: "1" },
         },
+        "orb-drift-1": {
+          "0%, 100%": { transform: "translate(0, 0) scale(1)" },
+          "50%": { transform: "translate(4%, 6%) scale(1.06)" },
+        },
+        "orb-drift-2": {
+          "0%, 100%": { transform: "translate(0, 0) scale(1)" },
+          "50%": { transform: "translate(-5%, -4%) scale(1.04)" },
+        },
+        "orb-drift-3": {
+          "0%, 100%": { transform: "translate(0, 0) scale(1)" },
+          "50%": { transform: "translate(3%, -5%) scale(1.05)" },
+        },
       },
       animation: {
         "pulse-slow": "pulse-slow 5s ease-in-out infinite",
@@ -64,6 +71,9 @@ export default {
         "gradient-text": "gradient-text 7s ease infinite",
         shimmer: "shimmer 2.2s ease-in-out infinite",
         "border-glow": "border-glow 3.5s ease-in-out infinite",
+        "orb-drift-1": "orb-drift-1 22s ease-in-out infinite",
+        "orb-drift-2": "orb-drift-2 28s ease-in-out infinite",
+        "orb-drift-3": "orb-drift-3 18s ease-in-out infinite",
       },
     },
   },
