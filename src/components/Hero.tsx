@@ -51,6 +51,32 @@ export default function Hero() {
             </ThesisBox>
           </Reveal>
         </div>
+
+        <div
+          id="intro"
+          className="relative mt-14 scroll-mt-20 border-t border-black/[0.08] pt-12 sm:mt-16 sm:pt-14"
+        >
+          <div className="max-w-2xl space-y-4 text-[17px] leading-[1.5] text-ink/85 sm:text-[18px]">
+            <p>
+              Healthcare already accounts for roughly one-sixth of the U.S. economy — yet
+              outcomes remain deeply unequal across income, race, and geography.
+            </p>
+            <p>
+              Value-based care (VBC) emerged as a reform response: pay providers for quality and
+              outcomes, not just volume. The promise is better health at lower cost.
+            </p>
+            <p>
+              This project asks a harder question:{" "}
+              <span className="font-semibold text-ink">
+                does VBC reduce healthcare inequality, or mainly improve average outcomes?
+              </span>
+            </p>
+          </div>
+
+          <p className="mt-8 text-[13px] font-medium uppercase tracking-[0.12em] text-ink-secondary">
+            Scroll to follow the argument →
+          </p>
+        </div>
       </div>
     </section>
   );
