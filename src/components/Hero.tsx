@@ -7,12 +7,17 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden border-b border-black/[0.06] bg-paper/75 pb-20 pt-16 backdrop-blur-[1px] sm:pb-24 sm:pt-24"
+      className="relative overflow-hidden border-b border-black/[0.06] bg-paper pb-20 pt-16 sm:pb-24 sm:pt-24"
     >
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <div className="absolute -left-[18%] -top-[40%] h-[min(92vw,560px)] w-[min(92vw,560px)] rounded-full bg-apple-blue/30 blur-[100px] animate-pulse-slow motion-reduce:animate-none motion-reduce:opacity-40" />
-        <div className="absolute -right-[12%] top-[15%] h-[min(78vw,480px)] w-[min(78vw,480px)] rounded-full bg-[#40916c]/25 blur-[110px] animate-pulse-slow motion-reduce:animate-none motion-reduce:opacity-35 [animation-delay:1.25s]" />
-        <div className="absolute bottom-[-25%] left-[20%] h-[400px] w-[400px] rounded-full bg-apple-blue/18 blur-[90px] animate-float opacity-90 motion-reduce:animate-none motion-reduce:opacity-30" />
+        <img
+          src="/images/hero-care.png"
+          alt=""
+          className="absolute inset-0 h-full w-full scale-105 object-cover object-[center_35%] blur-[6px] sm:blur-[8px]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-paper/95 via-paper/78 to-paper/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-paper/40 via-transparent to-paper" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-paper via-paper/90 to-transparent" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-content px-5 sm:px-6">
