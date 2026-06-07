@@ -8,14 +8,14 @@ export default {
         display: ['"Syne"', "system-ui", "sans-serif"],
       },
       colors: {
-        paper: "#f6faf8",
-        surface: "#e8f2ec",
-        ink: "#0c1210",
-        "ink-secondary": "#52635a",
-        "apple-blue": "#16a34a",
-        "apple-blue-hover": "#15803d",
-        accent: "#0891b2",
-        "accent-warm": "#2dd4bf",
+        paper: "#fbfbfd",
+        surface: "#f5f5f7",
+        ink: "#1d1d1f",
+        "ink-secondary": "#86868b",
+        "apple-blue": "#0071e3",
+        "apple-blue-hover": "#0077ed",
+        accent: "#5856d6",
+        "accent-warm": "#5ac8fa",
       },
       boxShadow: {
         apple:
@@ -23,9 +23,9 @@ export default {
         "apple-md": "0 4px 24px rgba(0, 0, 0, 0.07)",
         "apple-lg": "0 12px 40px rgba(0, 0, 0, 0.08)",
         glow:
-          "0 0 0 1px rgba(22, 163, 74, 0.15), 0 24px 48px -12px rgba(22, 163, 74, 0.35), 0 8px 32px -8px rgba(8, 145, 178, 0.2)",
+          "0 0 0 1px rgba(0, 113, 227, 0.12), 0 24px 48px -12px rgba(0, 113, 227, 0.35), 0 8px 32px -8px rgba(88, 86, 214, 0.15)",
         "glow-sm":
-          "0 0 24px -4px rgba(22, 163, 74, 0.5), 0 8px 24px -6px rgba(8, 145, 178, 0.15)",
+          "0 0 24px -4px rgba(0, 113, 227, 0.45), 0 8px 24px -6px rgba(88, 86, 214, 0.12)",
       },
       maxWidth: {
         content: "1068px",

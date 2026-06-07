@@ -20,10 +20,10 @@ export type HealthcareGdpSlice = {
 /** Shares of U.S. GDP (percent). */
 export const healthcareGdpSlices: HealthcareGdpSlice[] = [
   { name: "Rest of GDP", value: 82.7, fill: "#e8e8ed", group: "economy" },
-  { name: "Personal health care", value: 14.4, fill: "#248a3d", group: "healthcare" },
-  { name: "Government administration", value: 1.3, fill: "#7dd3a0", group: "healthcare" },
-  { name: "Investment", value: 0.846, fill: "#40916c", group: "healthcare" },
-  { name: "Government public health", value: 0.81, fill: "#52b788", group: "healthcare" },
+  { name: "Personal health care", value: 14.4, fill: "#0071e3", group: "healthcare" },
+  { name: "Government administration", value: 1.3, fill: "#5ac8fa", group: "healthcare" },
+  { name: "Investment", value: 0.846, fill: "#5856d6", group: "healthcare" },
+  { name: "Government public health", value: 0.81, fill: "#2997ff", group: "healthcare" },
 ];
 
 export const healthcareShareOfGdp = healthcareGdpSlices

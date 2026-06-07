@@ -28,21 +28,21 @@ body {
 }
 
 ::selection {
-  background-color: rgba(22, 163, 74, 0.28);
-  color: #0c1210;
+  background-color: rgba(0, 113, 227, 0.22);
+  color: #1d1d1f;
 }
 
 @layer utilities {
   .dramatic-heading {
     background: linear-gradient(
       115deg,
-      #0c1210 0%,
-      #0c1210 22%,
-      #16a34a 38%,
-      #0891b2 52%,
-      #2dd4bf 68%,
-      #16a34a 82%,
-      #0c1210 100%
+      #1d1d1f 0%,
+      #1d1d1f 22%,
+      #0071e3 38%,
+      #5856d6 52%,
+      #5ac8fa 68%,
+      #0071e3 82%,
+      #1d1d1f 100%
     );
     background-size: 220% auto;
     -webkit-background-clip: text;
@@ -83,7 +83,7 @@ body {
     height: 55vw;
     max-width: 640px;
     max-height: 640px;
-    background: radial-gradient(circle, rgba(22, 163, 74, 0.22) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0, 113, 227, 0.22) 0%, transparent 70%);
     animation: orb-drift-1 22s ease-in-out infinite;
   }
 
@@ -94,7 +94,7 @@ body {
     height: 45vw;
     max-width: 520px;
     max-height: 520px;
-    background: radial-gradient(circle, rgba(8, 145, 178, 0.16) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(88, 86, 214, 0.16) 0%, transparent 70%);
     animation: orb-drift-2 28s ease-in-out infinite;
   }
 
@@ -105,7 +105,7 @@ body {
     height: 50vw;
     max-width: 580px;
     max-height: 580px;
-    background: radial-gradient(circle, rgba(45, 212, 191, 0.14) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(90, 200, 250, 0.14) 0%, transparent 70%);
     animation: orb-drift-3 18s ease-in-out infinite;
   }
 
@@ -113,9 +113,9 @@ body {
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba(22, 163, 74, 0.5) 25%,
-      rgba(8, 145, 178, 0.5) 50%,
-      rgba(45, 212, 191, 0.5) 75%,
+      rgba(0, 113, 227, 0.5) 25%,
+      rgba(88, 86, 214, 0.5) 50%,
+      rgba(90, 200, 250, 0.5) 75%,
       transparent 100%
     );
     background-size: 200% 100%;

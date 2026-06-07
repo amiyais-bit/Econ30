@@ -18,8 +18,8 @@ import {
 } from "../data/spendingData";
 
 const barFill: Record<string, string> = {
-  us: "#248a3d",
-  comparable: "#7dd3a0",
+  us: "#0071e3",
+  comparable: "#5ac8fa",
   default: "#d1d1d6",
 };
 
