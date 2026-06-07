@@ -13,9 +13,9 @@ export default function Hero() {
         <img
           src="/images/hero-care.png"
           alt=""
-          className="absolute inset-0 h-full w-full scale-105 object-cover object-[center_35%] blur-[6px] sm:blur-[8px]"
+          className="absolute inset-0 h-full w-full -scale-x-100 scale-105 object-cover object-[70%_35%] blur-[2px] sm:blur-[3px]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-paper/95 via-paper/78 to-paper/55" />
+        <div className="absolute inset-0 bg-gradient-to-r from-paper/92 via-paper/70 to-paper/50" />
         <div className="absolute inset-0 bg-gradient-to-b from-paper/40 via-transparent to-paper" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-paper via-paper/90 to-transparent" />
       </div>
